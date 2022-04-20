@@ -7,10 +7,10 @@
     "mysql": "^2.18.1",
     "nodemon": "^2.0.15"
   },
-  "name": "webbserverprojekt",
+  "name": "webbserverproject",
   "description": "",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
