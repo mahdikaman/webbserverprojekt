@@ -1,12 +1,16 @@
+-- create database
 CREATE DATABASE moviesProject;
 
+-- select database
 USE moviesProject;
 
+-- create table
 CREATE TABLE actor(
     actorId INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     actorName VARCHAR(50)
 );
 
+-- adding rows of data
 INSERT INTO actor(actorName)
 VALUES ('Daniel Radcliffe'),('Brad Pitt'),('Denzel Washington'),('Leonardo DiCaprio'),('Tom Hanks'),('Emma Watson'),('Cameron Diaz'),
        ('Sofia Vergara'),('Reese Witherspoon'),('Zoe Saldana'),('Jennifer Aniston'),('Robert Downey Jr'),('Chris Evans'),('Chris Hemsworth'),('Tom Holland');
@@ -20,6 +24,7 @@ INSERT INTO director(directorName)
 VALUES ('Chris Columbus'),('Wolfgang Petersen'),('Antoine Fuqua'),('Martin Scorsese'),('Frank Darabont'),('Nancy Meyers'),('Anne Fletcher'),
        ('James Mangold'),('Anthony Russo'),('John Hamburg'),('Jon Favreau'),('Oley Sassone'),('Ron Howard'),('Jon Watts');
 
+-- update existing table because current director was wrong
 UPDATE director SET directorName ='Tim Story' WHERE directorName ='Oley Sassone';
 
 CREATE TABLE genre(
@@ -86,6 +91,6 @@ CREATE TABLE streamingAppMovie(
 INSERT INTO streamingAppMovie(streamingAppMovieMId, streamingAppMovieSId)
 VALUES (1,1),(2,2),(3,3),(4,4),(5,1),(6,2),(7,3),(8,4),(9,1),(10,2),(11,3),(12,4),(13,1),(14,2);
 
-
+-- inner join
 SELECT movie.movieTitle,actor.actorName FROM movie INNER JOIN actorMovie ON movie.movieId = actorMovie.actorMovieMId
 INNER JOIN actor ON actorMovie.actorMovieAId = actor.actorId;
