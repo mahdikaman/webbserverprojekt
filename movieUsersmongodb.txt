@@ -51,7 +51,7 @@ db.movieUsers.insertMany([
     birth: 1991
     favoriteMovies: [
       "Walk the Line",
-      "Pirates of the carribean",
+      "Pirates of the Carribean",
       "Hostel"
       ],
     favoriteActors: [
