@@ -1,7 +1,9 @@
 const mysql = require('mysql')
-exports.connection = mysql.createConnection({
+const connection = mysql.createConnection({
   host: 'localhost',
   user: 'rootuser',
   password: '',
   database: 'moviesProject'
 })
+
+module.exports = connection

@@ -15,6 +15,16 @@ const port = 1337
 
 app.listen(port, () => console.log(`App listening on port: ${port}`))
 
+// Sql/mySql anrop
+
+app.get('/movie', (req, res) => {
+  let sql = 'SELECT * FROM movie'
+  connection.query(sql, (err, results, fields) => {
+    if (err) throw err
+    res.json(results)
+  })
+})
+
 // NoSql/mongoDb
 mongo.connect(
   url,
@@ -32,10 +42,8 @@ mongo.connect(
   }
 )
 
-// Sql/mySql anrop
-
 // NoSql/mongoDb anrop
-app.get('/movies', (req, res) => {
+app.get('/reviews', (req, res) => {
   reviews.find().toArray((err, items) => {
     if (err) throw err
     res.json({ reviews: items })
