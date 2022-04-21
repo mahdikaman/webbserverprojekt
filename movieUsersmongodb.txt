@@ -1,6 +1,6 @@
 use movieUsers
 
-db.movieUsers.insertMany([
+db.movieUser.insertMany([
   {
     name: "Fredrik Stromberg",
     birth: 1990,
