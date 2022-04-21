@@ -17,47 +17,63 @@ db.movieUsers.insertMany([
     otherFunFacts: "I love Sam Elliots voice"
   },
   {
-        name:
-    birth:
+    name: "Pernilla Skeppstedt"
+    birth: 1988
     favoriteMovies: [
-
+      "Harry Potter",
+      "Titanic".
+      "Dear John"
       ],
     favoriteActors: [
-
+      "Channing Tatum",
+      "Emma Watson",
+      "Kate Winslet"
       ],
-    otherFunFacts:
+    otherFunFacts: "Channing Tatum is hot ASF"
   },
     {
-        name:
-    birth:
+    name: "Mahdi Kamankesh"
+    birth: 1996
     favoriteMovies: [
-
+      "The Equalizer",
+      "Harry Potter",
+      "Troy"
       ],
     favoriteActors: [
-
+      "Denzel Washington",
+      "Sofia Vergara",
+      "Pamela Anderson"
       ],
-    otherFunFacts:
+    otherFunFacts: "I love hot chick actors"
   },
     {
-        name:
-    birth:
+    name: "Fredric Ryding"
+    birth: 1991
     favoriteMovies: [
-
+      "Walk the Line",
+      "Pirates of the carribean",
+      "Hostel"
       ],
     favoriteActors: [
-
+      "Leonardo DiCaprio",
+      "Johnny Depp",
+      "Tom Holland"
       ],
-    otherFunFacts:
+    otherFunFacts: "?"
   },
     {
-        name:
-    birth:
+    name: "Alexander Caspersson"
+    birth: 1984
     favoriteMovies: [
-
+     "The Shawshank Redemption",
+     "The Gladiator",
+     "John Wick"
       ],
     favoriteActors: [
-
+      "Morgan Freeman"
+      "Keanu Reeves",
+      "Jonah Hill"
       ],
-    otherFunFacts:
+    otherFunFacts: "loading...."
   }
 ])
