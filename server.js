@@ -1,4 +1,3 @@
-// Sql/mySql
 const express = require('express')
 const app = express()
 const cors = require('cors')
@@ -15,17 +14,6 @@ const port = 1337
 
 app.listen(port, () => console.log(`App listening on port: ${port}`))
 
-// Sql/mySql anrop
-
-app.get('/movie', (req, res) => {
-  let sql = 'SELECT * FROM movie'
-  connection.query(sql, (err, results, fields) => {
-    if (err) throw err
-    res.json(results)
-  })
-})
-
-// NoSql/mongoDb
 mongo.connect(
   url,
   {
@@ -41,6 +29,15 @@ mongo.connect(
     reviews = db.collection('movieReview')
   }
 )
+
+// Sql/mySql anrop
+app.get('/movie', (req, res) => {
+  let sql = 'SELECT * FROM movie'
+  connection.query(sql, (err, results, fields) => {
+    if (err) throw err
+    res.json(results)
+  })
+})
 
 // NoSql/mongoDb anrop
 app.get('/reviews', (req, res) => {
