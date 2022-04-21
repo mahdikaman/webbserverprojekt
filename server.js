@@ -12,8 +12,6 @@ app.use(cors())
 app.use(express.static('public'))
 const port = 1337
 
-app.listen(port, () => console.log(`App listening on port: ${port}`))
-
 mongo.connect(
   url,
   {
@@ -33,9 +31,9 @@ app.listen(port, () => console.log(`App listening on port: ${port}`))
 
 app.get('/movie', (req, res) => {
   let sql = 'SELECT * FROM movie'
-  connection.query(sql, (err, res) => {
+  connection.query(sql, (err, result) => {
     if (err) throw err
-    res.json(res)
+    res.json(result)
   })
 })
 
@@ -43,9 +41,9 @@ app.post('/movie', (req, res) => {
   let sql =
     'INSERT INTO movie (movieId, movieTitle, ,movieReleaseYear VALUES(?,?,?)'
   let params = [req.body.movieId, req.body.movieTitle, req.body.movieRelaseYear]
-  connection.query(sql, params, (err, res) => {
+  connection.query(sql, params, (err, result) => {
     if (err) throw err
-    res.json(res)
+    res.json(result)
   })
 })
 
@@ -53,16 +51,16 @@ app.put('/movie', (req, res) => {
   let sql =
     'UPDATE movie SET movieTitle = ?, movieReleaseYear = ? WHERE movieId = ?'
   let params = [req.body.movieTitle, req.body.movieRelaseYear, req.body.movieId]
-  connection.query(sql, params, (err, res) => {
+  connection.query(sql, params, (err, result) => {
     if (err) throw err
-    res.json(res)
+    res.json(result)
   })
 })
 
 app.delete('/movie', (req, res) => {
   console.log(req.body)
   let sql = 'DELETE FROM movie WHERE movieId = ?'
-  connection.query(sql, [req.body.movieId], (err, res) => {
+  connection.query(sql, [req.body.movieId], (err, result) => {
     if (err) throw err
     res.end('The movie is now deleted!')
   })
@@ -95,9 +93,9 @@ app.post('/movieReview', (req, res) => {
       review: movieReview,
       rating: movieRating
     },
-    (err, res) => {
+    (err, result) => {
       if (err) throw err
-      console.log(res)
+      console.log(result)
       res.json({ ok: true })
     }
   )
@@ -119,9 +117,9 @@ app.put('/movieReview', (req, res) => {
         id: movieId
       }
     },
-    (err, res) => {
+    (err, result) => {
       if (err) throw err
-      console.log(res)
+      console.log(result)
       res.json({ ok: true })
     }
   )
@@ -134,7 +132,7 @@ app.delete('/movieReview', (req, res) => {
     {
       id: movieId
     },
-    (err, res) => {
+    (err, result) => {
       if (err) throw err
       res.json({ ok: true })
   })
