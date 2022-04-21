@@ -4,6 +4,6 @@ db.movieReviews.insertMany([
   {
     movie: "The Green Mile",
     review: "It's hard to create magic in a prison setting but Hanks and Duncan produce a memorable fairy tale. Hanks takes perhaps the most memorable pee in movie history.",
-    raiting: 4,5
+    rating: 4,5
   }
 ])
