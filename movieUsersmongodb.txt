@@ -1,0 +1,63 @@
+use movieUsers
+
+db.movieUsers.insertMany([
+  {
+    name: "Fredrik Stromberg",
+    birth: 1990,
+    favoriteMovies: [
+      "The Shawshank Redemption",
+      "The Rock",
+      "Public Enemies"
+      ],
+    favoriteActors: [
+      "Tom Hanks",
+      "Leonardo DiCaprio",
+      "Denzel Washington"
+      ],
+    otherFunFacts: "I love Sam Elliots voice"
+  },
+  {
+        name:
+    birth:
+    favoriteMovies: [
+
+      ],
+    favoriteActors: [
+
+      ],
+    otherFunFacts:
+  },
+    {
+        name:
+    birth:
+    favoriteMovies: [
+
+      ],
+    favoriteActors: [
+
+      ],
+    otherFunFacts:
+  },
+    {
+        name:
+    birth:
+    favoriteMovies: [
+
+      ],
+    favoriteActors: [
+
+      ],
+    otherFunFacts:
+  },
+    {
+        name:
+    birth:
+    favoriteMovies: [
+
+      ],
+    favoriteActors: [
+
+      ],
+    otherFunFacts:
+  }
+])
