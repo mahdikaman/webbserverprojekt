@@ -90,13 +90,22 @@ app.get('/movieReviews', (req, res) => {
   })
 })
 
-app.get('movieReviews/:rating', (req, res) => {
-  let reviewId = req.params.rating
-  reviews.find({ rating: reviewId }).toArray((err, items) => {
+app.get('movieReviews/:_id', (req, res) => {
+  let reviewId = req.params._id
+  reviews.find({ id: reviewId }).toArray((err, items) => {
     if (err) throw err
     res.json({ reviews: items })
   })
 })
+
+// funkar med movie men inte id eller rating, why?
+// app.get('/movieReviews/:movie', (req, res) => {
+//   let movieId = req.params.movie
+//   reviews.find({ movie: movieId }).toArray((err, items) => {
+//     if (err) throw err
+//     res.json({ reviews: items })
+//   })
+// })
 
 app.post('/movieReviews', (req, res) => {
   let movieTitle = req.body.movieTitle
