@@ -31,7 +31,6 @@ mongo.connect(
 // Skicka med id:n så att man har möjlighet att uppdatera FK i en tabell t ex movieGenreId i movie-tabellen. När id är PK är det den ni använder för att veta vilken rad ni ska uppdatera i databasen. Man skulle kunna göra som med böcker att man gör ett unikt index av ISBN (då något liknande i en annan tabell) och det är den kolumnen som då används för att komma åt rätt rad och t ex uppdatera eller ta bort den. Men har man ingen annan tydlig kolumn använder man id:t.
 
 //Sql CRUD------------------------
-
 //GET funkar
 app.get('/movies', (req, res) => {
   let sql = 'SELECT * FROM movie'
@@ -56,17 +55,23 @@ app.post('/movies', (req, res) => {
     res.send('Movie added')
   })
 })
-
+//PUT funkar
 app.put('/movies', (req, res) => {
   let sql =
-    'UPDATE movie SET movieTitle = ?, movieReleaseYear = ? WHERE movieId = ?'
-  let params = [req.body.movieTitle, req.body.movieRelaseYear, req.body.movieId]
-  connection.query(sql, params, (err, result) => {
+    'UPDATE movie SET movieTitle = ?, movieReleaseYear = ?, movieDirectorId = ?, movieGenreId = ? WHERE movieId = ?'
+  let params = [
+    req.body.movieTitle,
+    req.body.movieReleaseYear,
+    req.body.movieDirectorId,
+    req.body.movieGenreId,
+    req.body.movieId
+  ]
+  connection.query(sql, params, (err, results) => {
     if (err) throw err
-    res.json(result)
+    res.json(results)
   })
 })
-
+//DELETE funkar
 app.delete('/movies', (req, res) => {
   console.log(req.body)
   let sql = 'DELETE FROM movie WHERE movieId = ?'
