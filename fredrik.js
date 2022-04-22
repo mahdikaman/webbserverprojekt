@@ -76,7 +76,7 @@ app.delete('/movies', (req, res) => {
   })
 })
 
-//NoSql CRUD------------------------------------------------
+// NoSql CRUD------------------------------------------------
 app.get('/movieReview', (req, res) => {
   movie.find().toArray((err, items) => {
     if (err) throw err
