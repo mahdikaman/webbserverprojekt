@@ -145,6 +145,8 @@ app.delete('/actors', (req, res) => {
 
 
 //NoSql CRUD------------------------------------------------
+
+//Get för alla filmrecensioner
 app.get('/movieReviews', (req, res) => {
   reviews.find().toArray((err, items) => {
     if (err) throw err
@@ -152,15 +154,16 @@ app.get('/movieReviews', (req, res) => {
   })
 })
 
-
-app.get('/movieReviews/:movie', (req, res) => {
-  let movieId = req.params.movie
-  reviews.find({ movie: movieId }).toArray((err, items) => {
-    if (err) throw err
-    res.json({ reviews: items })
+// Get för filmtitel
+app.get('/movieReviews/:title', (req, res) => {
+  let movieTitle = req.params.title
+  reviews.find({ rating: movieTitle }).toArray((err, items) => {
+      if (err) throw err
+      res.json({ reviews: items })
   })
 })
 
+// Lägga till ny filmrecension
 app.post('/movieReviews', (req, res) => {
   let movieTitle = req.body.movieTitle
   let movieReview = req.body.movieReview
@@ -180,30 +183,30 @@ app.post('/movieReviews', (req, res) => {
   )
 })
 
-
+// Uppdatera filmrecension
 app.put('/movieReviews', (req, res) => {
   let movieTitle = req.body.movieTitle
   let movieReview = req.body.movieReview
   let movieRating = req.body.movieRating
-  let movieId = req.body.movieId
+
 
   reviews.updateOne(
-    { title: movieTitle },
-    {
-      $set: {
-        movie: movieTitle,
-        review: movieReview,
-        rating: parseInt(movieRating)
-      }
-    },
-    (err, result) => {
-      if (err) throw err
-      console.log(result)
-      res.json({ ok: true })
-    }
-  )
+      { movie: movieTitle },
+      {
+          $set: {
+          movie: movieTitle,
+          review: movieReview,
+          rating: parseInt(movieRating)
+
+          }
+      }, (err, result) => {
+          if (err) throw err
+          res.json({ ok: true })
+      })
 })
 
+
+//Ta bort filmrecension
 app.delete('/movieReviews', (req, res) => {
   let movieTitle = req.body.movieTitle
 
