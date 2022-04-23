@@ -67,22 +67,22 @@ app.delete('/movie', (req, res) => {
 })
 
 //NoSql CRUD------------------------------------------------
-app.get('/movieReview', (req, res) => {
-  movie.find().toArray((err, items) => {
+app.get('/movieReviews', (req, res) => {
+  reviews.find().toArray((err, items) => {
     if (err) throw err
-    res.json({ movie: items })
+    res.json({ review: items })
   })
 })
 
-app.get('movieReview/:id', (req, res) => {
-  let movieId = req.params.id
-  movie.find({ id: movieId }).toArray((err, items) => {
+app.get('movieReviews/:movie', (req, res) => {
+  let movieId = req.params.movie
+  movie.find({ movie: movieId }).toArray((err, items) => {
     if (err) throw err
-    res.json({ movie: items })
+    res.json({ reviews: items })
   })
 })
 
-app.post('/movieReview', (req, res) => {
+app.post('/movieReviews', (req, res) => {
   let movieTitle = req.body.movieTitle
   let movieReview = req.body.movieReview
   let movieRating = req.body.movieRating
