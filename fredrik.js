@@ -12,8 +12,10 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cors())
 app.use(express.static('public'))
 const port = 1337
-app.listen(port, () => console.log(`App listening on port: ${port}`))
-console.log(colors.rainbow('THIS IS ACTUALLY VERY COOL I LOVE THE RAINBOW'))
+app.listen(port, () =>
+  console.log(colors.rainbow(`App listening on port: ${port}`))
+)
+
 mongo.connect(
   url,
   {
@@ -140,7 +142,7 @@ app.put('/movieReviews', (req, res) => {
       $set: {
         movie: movieTitle,
         review: movieReview,
-        rating: movieRating,
+        rating: parseInt(movieRating),
         _id: movieId
       }
     },

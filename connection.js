@@ -12,7 +12,7 @@ const credentials = require('./credentials')
 
 const connection = mysql.createConnection({
   host: 'localhost',
-  user: 'rootuser2',
+  user: 'rootuser',
   password: credentials.password,
   database: 'moviesProject'
 })
