@@ -3,6 +3,7 @@ const app = express()
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const connection = require('./connection')
+const colors = require('colors')
 const mongo = require('mongodb').MongoClient
 const url = 'mongodb://localhost:27017'
 let db
@@ -12,7 +13,7 @@ app.use(cors())
 app.use(express.static('public'))
 const port = 1337
 app.listen(port, () => console.log(`App listening on port: ${port}`))
-
+console.log(colors.rainbow('THIS IS ACTUALLY VERY COOL I LOVE THE RAINBOW'))
 mongo.connect(
   url,
   {
