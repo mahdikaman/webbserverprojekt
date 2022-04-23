@@ -150,7 +150,7 @@ app.put('/movieReviews', (req, res) => {
     }
   )
 })
-
+//DELETE funkar men inte med id
 app.delete('/movieReviews', (req, res) => {
   let movieTitle = req.body.movieTitle
 
