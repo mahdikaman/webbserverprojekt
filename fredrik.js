@@ -126,29 +126,30 @@ app.post('/movieReviews', (req, res) => {
   )
 })
 
-// app.put('/movieReviews', (req, res) => {
-//   let movieTitle = req.body.movieTitle
-//   let movieReview = req.body.movieReview
-//   let movieRating = req.body.movieRating
-//   let movieId = req.body.movieId
+// PUT funkar med id i url men inte i textfält för insomnia
+app.put('/movieReviews', (req, res) => {
+  let movieTitle = req.body.movieTitle
+  let movieReview = req.body.movieReview
+  let movieRating = req.body.movieRating
+  let movieId = req.body.movieId
 
-//   movieReview.updateOne(
-//     { id: movieId },
-//     {
-//       $set: {
-//         movie: movieTitle,
-//         review: movieReview,
-//         rating: movieRating,
-//         id: movieId
-//       }
-//     },
-//     (err, result) => {
-//       if (err) throw err
-//       console.log(result)
-//       res.json({ ok: true })
-//     }
-//   )
-// })
+  reviews.updateOne(
+    { _id: movieId },
+    {
+      $set: {
+        movie: movieTitle,
+        review: movieReview,
+        rating: movieRating,
+        _id: movieId
+      }
+    },
+    (err, result) => {
+      if (err) throw err
+      // console.log(result)
+      res.json({ ok: true })
+    }
+  )
+})
 
 // app.delete('/movieReviews', (req, res) => {
 //   let movieId = req.body.movieId
