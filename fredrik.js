@@ -90,14 +90,13 @@ app.get('/movieReviews', (req, res) => {
   })
 })
 
-app.get('movieReviews/:_id', (req, res) => {
-  let reviewId = req.params._id
-  reviews.find({ id: reviewId }).toArray((err, items) => {
-    if (err) throw err
-    res.json({ reviews: items })
-  })
-})
-
+// app.get('movieReviews/:_id', (req, res) => {
+//   let reviewId = req.params._id
+//   reviews.find({ id: reviewId }).toArray((err, items) => {
+//     if (err) throw err
+//     res.json({ reviews: items })
+//   })
+// })
 // funkar med movie men inte id eller rating, why?
 // app.get('/movieReviews/:movie', (req, res) => {
 //   let movieId = req.params.movie
@@ -107,12 +106,13 @@ app.get('movieReviews/:_id', (req, res) => {
 //   })
 // })
 
+//POST funkar men numbers i rating skrivs ut som en sträng???
 app.post('/movieReviews', (req, res) => {
   let movieTitle = req.body.movieTitle
   let movieReview = req.body.movieReview
   let movieRating = req.body.movieRating
 
-  movieReview.insertOne(
+  reviews.insertOne(
     {
       movie: movieTitle,
       review: movieReview,
@@ -126,40 +126,40 @@ app.post('/movieReviews', (req, res) => {
   )
 })
 
-app.put('/movieReviews', (req, res) => {
-  let movieTitle = req.body.movieTitle
-  let movieReview = req.body.movieReview
-  let movieRating = req.body.movieRating
-  let movieId = req.body.movieId
+// app.put('/movieReviews', (req, res) => {
+//   let movieTitle = req.body.movieTitle
+//   let movieReview = req.body.movieReview
+//   let movieRating = req.body.movieRating
+//   let movieId = req.body.movieId
 
-  movieReview.updateOne(
-    { id: movieId },
-    {
-      $set: {
-        movie: movieTitle,
-        review: movieReview,
-        rating: movieRating,
-        id: movieId
-      }
-    },
-    (err, result) => {
-      if (err) throw err
-      console.log(result)
-      res.json({ ok: true })
-    }
-  )
-})
+//   movieReview.updateOne(
+//     { id: movieId },
+//     {
+//       $set: {
+//         movie: movieTitle,
+//         review: movieReview,
+//         rating: movieRating,
+//         id: movieId
+//       }
+//     },
+//     (err, result) => {
+//       if (err) throw err
+//       console.log(result)
+//       res.json({ ok: true })
+//     }
+//   )
+// })
 
-app.delete('/movieReviews', (req, res) => {
-  let movieId = req.body.movieId
+// app.delete('/movieReviews', (req, res) => {
+//   let movieId = req.body.movieId
 
-  movieReview.deleteOne(
-    {
-      id: movieId
-    },
-    (err, result) => {
-      if (err) throw err
-      res.json({ ok: true })
-    }
-  )
-})
+//   movieReview.deleteOne(
+//     {
+//       id: movieId
+//     },
+//     (err, result) => {
+//       if (err) throw err
+//       res.json({ ok: true })
+//     }
+//   )
+// })
