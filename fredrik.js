@@ -106,7 +106,7 @@ app.get('/movieReviews', (req, res) => {
 //   })
 // })
 
-//POST funkar men numbers i rating skrivs ut som en sträng???
+//POST funkar
 app.post('/movieReviews', (req, res) => {
   let movieTitle = req.body.movieTitle
   let movieReview = req.body.movieReview
@@ -116,7 +116,7 @@ app.post('/movieReviews', (req, res) => {
     {
       movie: movieTitle,
       review: movieReview,
-      rating: movieRating
+      rating: parseInt(movieRating)
     },
     (err, result) => {
       if (err) throw err
@@ -151,16 +151,16 @@ app.put('/movieReviews', (req, res) => {
   )
 })
 
-// app.delete('/movieReviews', (req, res) => {
-//   let movieId = req.body.movieId
+app.delete('/movieReviews', (req, res) => {
+  let movieTitle = req.body.movieTitle
 
-//   movieReview.deleteOne(
-//     {
-//       id: movieId
-//     },
-//     (err, result) => {
-//       if (err) throw err
-//       res.json({ ok: true })
-//     }
-//   )
-// })
+  reviews.deleteOne(
+    {
+      movie: movieTitle
+    },
+    (err, result) => {
+      if (err) throw err
+      res.json({ ok: true })
+    }
+  )
+})
