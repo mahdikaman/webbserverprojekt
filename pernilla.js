@@ -41,7 +41,7 @@ app.get('/movies', (req, res) => {
 
 
 //Get för alla filmer kopplade till skådespelare
-app.get('/movies', (req, res) => {
+app.get('/movies/actors', (req, res) => {
   let sql = 'SELECT movie.movieTitle,actor.actorName FROM movie INNER JOIN actorMovie ON movie.movieId = actorMovie.actorMovieMId INNER JOIN actor ON actorMovie.actorMovieAId = actor.actorId'
   connection.query(sql, (err, result) => {
     if (err) throw err
@@ -50,17 +50,47 @@ app.get('/movies', (req, res) => {
 })
 
 //Returnerar skådespelare och genre där det matchar.
-app.get('/movies', (req, res) => {
-  let sql = 'SELECT actor.actorName, genre.genreType FROM genre INNER JOIN actorMovie ON genre.genreId = actorMovie actorMovieAId INNER JOIN actor ON actorMovie.actorMovieAId = actor.actorId'
+app.get('/movies/actorsgenre', (req, res) => {
+  let sql = 'SELECT actor.actorName, genre.genreType FROM genre INNER JOIN actorMovie ON genre.genreId = actorMovie.actorMovieAId INNER JOIN actor ON actorMovie.actorMovieAId = actor.actorId'
   connection.query(sql, (err, result) => {
     if (err) throw err
     res.json(result)
   })
 })
 
+
+// Visar vilken film som visas på vilken streamingapp
+app.get('/movies/streamingapp', (req, res) => {
+  let sql = 'SELECT streamingApp.streamingAppTitle, movie.movieTitle FROM movie INNER JOIN streamingAppMovie ON movie.movieId = streamingAppMovie.streamingAppMovieMId INNER JOIN streamingApp ON streamingAppMovie.streamingAppMovieSId = streamingApp.streamingAppId'
+  connection.query(sql, (err, result) => {
+    if (err) throw err
+    res.json(result)
+  })
+})
+
+// Returnerar vem som har regisserat filmen
+app.get('/movies/director', (req, res) => {
+  let sql = 'SELECT movie.movieTitle, director.directorName FROM movie INNER JOIN director ON movie.movieDirectorId = director.directorId'
+  connection.query(sql, (err, result) => {
+    if (err) throw err
+    res.json(result)
+  })
+})
+
+
+
 //Get för antal filmer
 app.get('/movies/count', (req, res) => {
   let sql = 'SELECT COUNT (movieId) AS movieAmount FROM movie'
+  connection.query(sql, (err, result) => {
+    if (err) throw err
+    res.json(result)
+  })
+})
+
+//Get för antal skådespelare
+app.get('/movies/countactors', (req, res) => {
+  let sql = 'SELECT COUNT (actorId) AS actorAmount FROM actor'
   connection.query(sql, (err, result) => {
     if (err) throw err
     res.json(result)
@@ -77,7 +107,6 @@ app.post('/movies', (req, res) => {
     res.json(result)
   })
 })
-
 
 
 //Put för filmer
