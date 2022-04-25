@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movies</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/menu.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="container">
+        <a href="/">
+          <p>Webbserverprojekt</p>
+        </a>
+        <ul class="desktop-menu">
+          <li><a href="#movies">Movies</a></li>
+          <li><a href="#about">Add movie</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+        </ul>
+
+        <!-- Hamburger Menu -->
+        <div class="mobile-menu">
+          <input
+            type="checkbox"
+            class="toggler"
+            role="checkbox"
+            aria-checked="false"
+            tabindex="0"
+          />
+          <div class="hamburger"><div></div></div>
+          <div class="menu">
+            <div>
+              <div>
+                <ul>
+                  <li><a href="#movies">Movies</a></li>
+                  <li><a href="#about">Reviews</a></li>
+                  <li><a href="#reviews">Add movie</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header/Hero -->
+    <header class="header bg-movies">
+      <div class="header-inner">
+        <div class="container">
+          <h5>Movie Reviewer</h5>
+          <h1>
+            Awesome reviewsite for
+            <span class="text-primary">Everyone</span>
+          </h1>
+          <p class="lead">Read our reviewers awsome reviews</p>
+          <a href="#movies" class="btn btn-primary">Start here</a>
+
+          <div class="stats">
+            <div class="stat">
+              <i class="fas fa-user fa-4x"></i>
+              <h3>2+</h3>
+              <p>Users</p>
+            </div>
+            <div class="stat">
+              <i class="fas fa-film fa-4x"></i>
+              <h3>10+</h3>
+              <p>Film Reviews</p>
+            </div>
+            <div class="stat">
+              <i class="fab fa-yammer fa-4x"></i>
+              <h3>2</h3>
+              <p>Daily visitors</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Blue divider -->
+    <section class="bg-primary">
+      <div class="container"></div>
+    </section>
+
+    <!-- Movies -->
+    <section id="movies" class="movies bg-dark-pattern">
+      <div class="container">
+        <h2><span class="text-primary">Latest </span>Movies</h2>
+        <p class="text-center">Read all about them.</p>
+        <div class="film-grid">
+          <div class="card">
+            <div class="card-body">
+              <div class="title">Harry Potter and the prisoner of Azkaban</div>
+              <p>2004</p>
+            </div>
+            <div class="card-footer"><p>Director: Alfonso Cuarón</p></div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <div class="title">Harry Potter and the prisoner of Azkaban</div>
+              <p>2004</p>
+            </div>
+            <div class="card-footer"><p>Director: Alfonso Cuarón</p></div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <div class="title">Harry Potter and the prisoner of Azkaban</div>
+              <p>2004</p>
+            </div>
+            <div class="card-footer"><p>Director: Alfonso Cuarón</p></div>
+          </div>
+        </div>
+
+        <h2><span class="text-primary">Popular</span> movies</h2>
+        <div class="film-grid">
+          <div class="card">
+            <div class="card-body">
+              <div class="title">Harry Potter and the prisoner of Azkaban</div>
+              <p>2004</p>
+            </div>
+            <div class="card-footer"><p>Director: Alfonso Cuarón</p></div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <div class="title">Harry Potter and the prisoner of Azkaban</div>
+              <p>2004</p>
+            </div>
+            <div class="card-footer"><p>Director: Alfonso Cuarón</p></div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <div class="title">Harry Potter and the prisoner of Azkaban</div>
+              <p>2004</p>
+            </div>
+            <div class="card-footer"><p>Director: Alfonso Cuarón</p></div>
+          </div>
+        </div>
+
+        <!-- MORE -->
+        <div class="film-grid more">
+          <div class="card"></div>
+        </div>
+
+        <button class="btn btn-secondary btn-more">Show More</button>
+      </div>
+    </section>
+
+    <!-- reviews -->
+    <section id="reviews" class="reviews bg-light-pattern">
+      <div class="container">
+        <h2 class="text-lg">Reviews</h2>
+        <p class="text-center">Read our user reviews</p>
+
+        <div class="reviews-grid">
+          <div class="card card-light">
+            <div class="card-head">
+              <div>
+                <h3>Pernilla</h3>
+                <h5>
+                  Movie:
+                  <span class="text-primary"
+                    >Harry Potter and the prisoner of Azkaban</span
+                  >
+                </h5>
+                <h5>
+                  Rating:
+                  <span class="text-primary">9</span>
+                </h5>
+              </div>
+            </div>
+            <div class="card-body">
+              <p>
+                "Harry is maturing and becoming more and more involved in that
+                past that has brought him here. Sirius Black becomes the spoken
+                adversary, but his presence is a bit obvious and we moviegoers
+                are a suspicious lot. The three compadres begin to work together
+                in more productive ways, moving the action rather than being
+                moved by it."
+              </p>
+            </div>
+          </div>
+
+          <div class="card card-light">
+            <div class="card-head">
+              <div>
+                <h3>N00b$LayEr</h3>
+                <h5>
+                  Movie:
+                  <span class="text-primary">Troy</span>
+                </h5>
+                <h5>
+                  Rating:
+                  <span class="text-primary">8</span>
+                </h5>
+              </div>
+            </div>
+            <div class="card-body">
+              <p>
+                "I love this movie, by far my favorite R rated movie and in the
+                running for one of the greatest and most epic in my opinion. The
+                acting, the world-building, the character depth, and the thrill
+                of such an incredible depiction of the time period. I didn't
+                think it was possible to make an accounting of the Trojan war
+                void of the supernatural presence of the Greek Gods that rivals
+                the old story in excellence, but this movie does."
+              </p>
+            </div>
+          </div>
+
+          <div class="card card-light">
+            <div class="card-head">
+              <div>
+                <h3>MahaDDI</h3>
+                <h5>
+                  Movie:
+                  <span class="text-primary">The Equalizer</span>
+                </h5>
+                <h5>
+                  Rating:
+                  <span class="text-primary">9</span>
+                </h5>
+              </div>
+            </div>
+            <div class="card-body">
+              <p>
+                "It is by far better than most shows now airing. It’s appeal is
+                the vigilante theme, righting wrongs most of us feel helpless to
+                correct. The mystery and the way it unfolds is very
+                entertaining. Having Mel and Harry is perfect and the balance
+                with just enough home life keeps a story going. Did not know how
+                Queen Latifah would work out in this role, but she is wonderful.
+                Her calm and confident demeanor works well. Please keep this hit
+                series returning…it is perfect for the times. Thank you."
+              </p>
+            </div>
+          </div>
+
+          <div class="card card-light">
+            <div class="card-head">
+              <div>
+                <h3>Fredrik</h3>
+                <h5>
+                  Movie:
+                  <span class="text-primary">The Wolf of Wall Street</span>
+                </h5>
+                <h5>
+                  Rating:
+                  <span class="text-primary">10</span>
+                </h5>
+              </div>
+            </div>
+            <div class="card-body">
+              <p>
+                "This movie is absolutely amazing and it deserved way more Oscar
+                wins. Leonardo DiCaprio is unbelievable and this movie is his
+                best performance and he isn't the only one putting in an amazing
+                performance, this film is littered with them, Jonah Hill is
+                amazing, Margot Robbie is so good to say this was her first
+                major role."
+              </p>
+            </div>
+          </div>
+
+          <div class="card card-light">
+            <div class="card-head">
+              <div>
+                <h3>Alexander Casper</h3>
+                <h5>
+                  Movie:
+                  <span class="text-primary">The Holiday</span>
+                </h5>
+                <h5>
+                  Rating:
+                  <span class="text-primary">7</span>
+                </h5>
+              </div>
+            </div>
+            <div class="card-body">
+              <p>
+                "Well yes, a 2006 romantic comedy that delivers what it
+                promises. Mostly due to the disarming likability of the four
+                leads plus Eli Wallach. Not for cynics, naturally, but very few
+                things are and what the hell I laughed I was moved and I
+                surprised myself all the way through. I came out of the theater
+                smiling from ear to ear. Listen, that's not small feast in a
+                world that seems too self conscious to be cute, even smartly
+                cute like in this case."
+              </p>
+            </div>
+          </div>
+
+          <div class="card card-light">
+            <div class="card-head">
+              <div>
+                <h3>Fredric</h3>
+                <h5>Movie: <span class="text-primary">Hot Pursuit</span></h5>
+                <h5>
+                  Rating:
+                  <span class="text-primary">7</span>
+                </h5>
+              </div>
+            </div>
+            <div class="card-body">
+              <p>
+                "This film tells the story of a uptight female police officer
+                who is sent to escort a key witness and his wife to Texas to
+                testify a powerful drug lord. Two sets of gunmen goes to kill
+                the key witness, leaving the police officer and the wife running
+                for safety. I don't quite understand the poor reviews because I
+                find Hot Pursuit very funny."
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-padding-lg bg-primary">
+      <div class="container"></div>
+    </section>
+  </body>
+</html>

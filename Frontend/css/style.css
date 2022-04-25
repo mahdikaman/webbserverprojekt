@@ -1,0 +1,426 @@
+/* Reset */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Properties */
+:root {
+  --primary-color: #3195ff;
+  --secondary-color: #333;
+  --dark-color: #000;
+  --light-color: #f4f4f4;
+  --header-opacity: 0.8;
+}
+
+/* Basic Styles */
+body {
+  background-color: rgb(22, 22, 22);
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+p {
+  margin: 10px 0;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+img {
+  width: 100%;
+}
+
+section {
+  padding: 20px;
+}
+
+.section-padding-lg {
+  padding: 40px 20px;
+}
+
+.section-padding-xl {
+  padding: 60px 20px;
+}
+
+section h2 {
+  text-align: center;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* Navbar */
+.navbar {
+  /* background-color: var(--primary-color); */
+  background-color: #000;
+  height: 70px;
+  width: 100%;
+  padding: 5px 10px;
+  margin-bottom: 50px;
+  position: fixed;
+  z-index: 10;
+  opacity: 0.8;
+}
+
+.navbar img {
+  display: block;
+  width: 250px;
+  height: 60px;
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar ul {
+  display: flex;
+}
+
+.navbar ul a {
+  margin-left: 30px;
+  padding-bottom: 5px;
+}
+
+.navbar ul a:hover {
+  color: var(--primary-color);
+  border-bottom: 2px var(--primary-color) solid;
+}
+
+/* Header */
+.header {
+  position: relative;
+  background: url('../images/bg.png') no-repeat center center/cover;
+  height: 1100px;
+  width: 100%;
+  text-align: center;
+  padding: 0 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Overlay */
+.header::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, var(--header-opacity));
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.header-inner {
+  position: relative;
+  z-index: 2;
+  width: 700px;
+  margin: 0 auto;
+}
+
+.header h5 {
+  font-size: 20px;
+  color: var(--primary-color);
+}
+
+.header h1 {
+  font-size: 65px;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.header p.lead {
+  font-size: 20px;
+  margin: 30px 0;
+}
+
+.header .btn {
+  padding: 10px 30px;
+}
+
+/* Stats */
+.header .stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 120px;
+}
+
+.header .stats img {
+  width: 100px;
+  height: 100px;
+}
+
+.header .stats i {
+  width: 100px;
+  height: 100px;
+}
+
+.header .stats h3 {
+  font-size: 50px;
+}
+
+.stats p {
+  font-size: 20px;
+  margin-top: 0;
+}
+
+/* Movies */
+.movies h2 {
+  margin: 30px 0 20px;
+}
+
+/*  */
+.film-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.film-grid .card-body {
+  padding-top: 30px;
+  height: 150px;
+}
+
+.film-grid .card-footer {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.film-grid .card-footer img {
+  width: 30px;
+  margin-right: 10px;
+}
+
+.film-grid.more {
+  margin-top: 40px;
+  display: none;
+}
+
+.film-grid.more.show {
+  display: grid;
+}
+
+
+.film-grid a:hover {
+  color: #ea5252;
+}
+
+.film-grid .title {
+  margin-bottom: 5px;
+  color: var(--primary-color);
+  text-transform: uppercase;
+}
+
+
+/* reviews */
+.reviews {
+  padding-bottom: 60px;
+}
+
+.reviews h2 {
+  margin-top: 30px;
+}
+
+.reviews p {
+  margin-bottom: 35px;
+}
+
+.reviews img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.reviews .card-head {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.reviews .card-body {
+  height: 190px;
+}
+
+
+/* Utility Classes */
+
+/* Card */
+.card {
+  background-color: #222;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px 30px;
+  position: relative;
+  border: #333 solid 1px;
+}
+
+.card-light {
+  background-color: #f4f4f4;
+  color: #333;
+  border: #eee solid 1px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  border-radius: 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  background-color: #000;
+  color: #fff;
+  font-size: 15px;
+  padding: 5px 25px;
+  text-align: center;
+  font-weight: 700;
+  line-height: 2.4rem;
+  border: 1px transparent solid;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  /* background-color: var(--secondary-color); */
+  background-color: transparent !important;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+}
+
+.btn-secondary:hover {
+  background-color: var(--primary-color);
+}
+
+.btn-primary-outline {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+
+.btn-primary-outline:hover {
+  color: #fff;
+  border: 1px solid #fff;
+  background-color: transparent;
+}
+
+.btn-dark {
+  background-color: var(--dark-color);
+}
+
+.btn-dark:hover {
+  background-color: var(--secondary-color);
+}
+
+.btn-light {
+  background-color: var(--light-color);
+  color: #333;
+}
+
+.btn-light:hover {
+  opacity: 0.9;
+}
+
+.btn-more {
+  margin: 40px auto;
+  width: 100%;
+}
+
+/* Text Colors */
+.text-primary {
+  color: var(--primary-color);
+}
+
+.text-red {
+  color: #ea5252;
+}
+
+.text-light {
+  color: #777;
+}
+
+/* Text Sizes */
+.text-small {
+  font-size: 12px;
+}
+
+.text-lg {
+  font-size: 35px;
+}
+
+.lead {
+  font-size: 20px;
+}
+
+/* Text Align */
+.text-center {
+  text-align: center;
+}
+
+/* Backgrounds */
+.bg-primary {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.bg-movies {
+  background: url('../images/movies.jpg') no-repeat center center/cover;
+  color: #fff;
+}
+
+.bg-light {
+  background-color: var(--light-color);
+  color: #333;
+}
+
+.bg-dark-pattern {
+  background-image: url('../images/bg-pattern-1.png');
+  color: #fff;
+}
+
+.bg-light-pattern {
+  background-image: url('../images/bg-pattern-2.png');
+  color: #333;
+}
+
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
