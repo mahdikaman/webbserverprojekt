@@ -308,16 +308,6 @@ section h2 {
   border: 1px transparent solid;
 }
 
-.btn-primary {
-  background-color: var(--primary-color);
-}
-
-.btn-primary:hover {
-  /* background-color: var(--secondary-color); */
-  background-color: transparent !important;
-  color: #fff;
-  border: 1px solid #fff;
-}
 
 .btn-secondary {
   background-color: var(--secondary-color);
@@ -325,18 +315,6 @@ section h2 {
 
 .btn-secondary:hover {
   background-color: var(--primary-color);
-}
-
-.btn-primary-outline {
-  background-color: transparent;
-  color: var(--primary-color);
-  border: 1px solid var(--primary-color);
-}
-
-.btn-primary-outline:hover {
-  color: #fff;
-  border: 1px solid #fff;
-  background-color: transparent;
 }
 
 .btn-dark {
@@ -408,19 +386,13 @@ section h2 {
   color: #333;
 }
 
-.bg-dark-pattern {
-  background-image: url('../images/bg-pattern-1.png');
-  color: #fff;
-}
-
-.bg-light-pattern {
-  background-image: url('../images/bg-pattern-2.png');
-  color: #333;
-}
-
 
 .flex {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+form {
+  text-align: center;
 }

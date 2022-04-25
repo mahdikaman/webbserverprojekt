@@ -1,4 +1,4 @@
-const mysql = require('mysql')
+const mysql = require('mysql');
 
 /* skapa din egen credentials.js med innehåll:
 
@@ -8,13 +8,13 @@ module.exports = {
 
 credentials.js är i .gitignore för att undvika att pusha lösenord till github:)
 */
-const credentials = require('./credentials')
+const credentials = require('./credentials');
 
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'rootuser',
   password: credentials.password,
-  database: 'moviesProject'
-})
+  database: 'moviesProject',
+});
 
-module.exports = connection
+module.exports = connection;
