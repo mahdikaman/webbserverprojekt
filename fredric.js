@@ -33,8 +33,18 @@ mongo.connect(
 
 app.listen(port, () => console.log(`http://${hostname}:${port}/`))
 
+// ------------- GET MOVIES -------------
 app.get('/movie', (req, res) => {
   let sql = 'SELECT * FROM movie'
+  connection.query(sql, (err, result) => {
+    if (err) throw err
+    res.json(result)
+  })
+})
+
+// ------------- GET DIRECTORS -------------
+app.get('/director', (req, res) => {
+  let sql = 'SELECT * FROM director'
   connection.query(sql, (err, result) => {
     if (err) throw err
     res.json(result)
