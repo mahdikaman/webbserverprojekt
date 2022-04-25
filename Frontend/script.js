@@ -1,19 +1,35 @@
+//fatstack påbörjade directors.
+const getDirectors = () => {
+  fetch('http://localhost:1337/directors')
+    .then((response) => response.json())
+    .then((result) => {
+      console.log('Directors:', result)
+      const directors = result
+
+      directors.forEach((director) => {
+        const directorDiv = document.getElementById('director-list')
+        const directorsUl = document.createElement('ul')
+        const directorsList = document.createElement('li')
+        directorsList.innerHTML = 'Director: ' + director.directorName
+        directorsUl.appendChild(directorsList)
+        directorDiv.appendChild(directorsUl)
+      })
+    })
+}
+getDirectors()
+
+// --------------------------------------------------------
+
 function getMovies() {
   let promise = fetch('http://localhost:1337/movie')
 
   return promise.then((response) => response.json())
 }
 
-// function getDirectors() {
-//   let promise = fetch('http://localhost:1337/director')
-
-//   return promise.them((response) => response.json())
-// }
-
 async function main() {
   movies = await getMovies()
   renderMovies(movies)
-  console.log(movies)
+  console.log('Movies:', movies)
 }
 
 main()

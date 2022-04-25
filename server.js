@@ -3,6 +3,7 @@ const app = express()
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const connection = require('./connection')
+const colors = require('colors')
 const mongo = require('mongodb').MongoClient
 const url = 'mongodb://localhost:27017'
 let db
@@ -27,8 +28,11 @@ mongo.connect(
     reviews = db.collection('movieReview')
   }
 )
-app.listen(port, () => console.log(`App listening on port: ${port}`))
+app.listen(port, () =>
+  console.log(colors.rainbow(`App listening on port: ${port}`))
+)
 
+//movies sql
 app.get('/movie', (req, res) => {
   let sql = 'SELECT * FROM movie'
   connection.query(sql, (err, result) => {
@@ -63,6 +67,15 @@ app.delete('/movie', (req, res) => {
   connection.query(sql, [req.body.movieId], (err, result) => {
     if (err) throw err
     res.end('The movie is now deleted!')
+  })
+})
+
+// directors sql
+app.get('/directors', (req, res) => {
+  let sql = 'SELECT * FROM director'
+  connection.query(sql, (err, result) => {
+    if (err) throw err
+    res.json(result)
   })
 })
 
@@ -135,5 +148,6 @@ app.delete('/movieReview', (req, res) => {
     (err, result) => {
       if (err) throw err
       res.json({ ok: true })
-  })
+    }
+  )
 })

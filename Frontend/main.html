@@ -4,16 +4,18 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Movies</title>
+    <script src="script.js" defer></script>
+    <script src="/server.js" defer></script>
     <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/menu.css" />
+    <title>Movies</title>
   </head>
   <body>
     <!-- Navigation -->
@@ -96,6 +98,15 @@
       <h2><span class="text-primary">All </span>Movies</h2>
       <div class="container">
         <div id="movie-list" class="film-grid"></div>
+      </div>
+      </div>
+    </section>
+
+    <!-- Directors -->
+    <section id="directors" class="movies bg-dark-pattern">
+      <h2><span class="text-primary">All </span>Directors</h2>
+      <div class="container">
+        <div id="director-list" class="film-grid"></div>
       </div>
       </div>
     </section>
@@ -297,8 +308,9 @@
 
     <section>
       <div>
-        <script src="script.js"></script>
-        <script src="/server.js"></script>
+        <!-- <script src="script.js"></script>
+        <script src="/server.js"></script> -->
+        <!-- Varför lägga import av script i section/div? -->
       </div>
     </section>
 
