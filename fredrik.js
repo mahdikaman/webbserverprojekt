@@ -53,7 +53,7 @@ app.get('/allmovies', (req, res) => {
   })
 })
 
-// POST funkar men movieTitle skrivs ut konstigt = "\"Taxi Driver\""
+// POST funkar
 app.post('/movies', (req, res) => {
   let sql =
     'INSERT INTO movie (movieId, movieTitle, movieReleaseYear, movieDirectorId, movieGenreId) VALUES(?,?,?,?,?)'
@@ -105,27 +105,11 @@ app.get('/movieReviews', (req, res) => {
   })
 })
 
-// app.get('movieReviews/:_id', (req, res) => {
-//   let reviewId = req.params._id
-//   reviews.find({ id: reviewId }).toArray((err, items) => {
-//     if (err) throw err
-//     res.json({ reviews: items })
-//   })
-// })
-// funkar med movie men inte id eller rating, why?
-// app.get('/movieReviews/:movie', (req, res) => {
-//   let movieId = req.params.movie
-//   reviews.find({ movie: movieId }).toArray((err, items) => {
-//     if (err) throw err
-//     res.json({ reviews: items })
-//   })
-// })
-
 //POST funkar
 app.post('/movieReviews', (req, res) => {
-  let movieTitle = req.body.movieTitle
-  let movieReview = req.body.movieReview
-  let movieRating = req.body.movieRating
+  let movieTitle = req.body.movie
+  let movieReview = req.body.review
+  let movieRating = req.body.rating
 
   reviews.insertOne(
     {
@@ -142,20 +126,20 @@ app.post('/movieReviews', (req, res) => {
 })
 
 // PUT funkar med id i url men inte i textfält för insomnia
+//SKAPA ID
 app.put('/movieReviews', (req, res) => {
-  let movieTitle = req.body.movieTitle
-  let movieReview = req.body.movieReview
-  let movieRating = req.body.movieRating
-  let movieId = req.body.movieId
+  let movieTitle = req.body.movie
+  let movieReview = req.body.review
+  let movieRating = req.body.rating
+  let movieTitleNew = req.body.movienew
 
   reviews.updateOne(
-    { _id: movieId },
+    { movieTitle: movieTitle },
     {
       $set: {
-        movie: movieTitle,
+        movie: movieTitleNew,
         review: movieReview,
-        rating: parseInt(movieRating),
-        _id: movieId
+        rating: parseInt(movieRating)
       }
     },
     (err, result) => {
