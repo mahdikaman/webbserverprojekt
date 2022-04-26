@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="script.js" defer></script>
-    <script src="/server.js" defer></script>
+    <!-- <script src="/server.js" defer></script> -->
     <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
@@ -21,6 +21,9 @@
     <!-- Navigation -->
     <nav class="navbar">
       <div class="container">
+        <a href="/">
+          <p>Webbserverprojekt</p>
+        </a>
         <ul class="desktop-menu">
           <li><a href="#movies">Movies</a></li>
           <li><a href="#about">Add movie</a></li>
@@ -46,7 +49,7 @@
           <div class="stats">
             <div class="stat">
               <i class="fas fa-user fa-4x"></i>
-              <h3>456789+</h3>
+              <h3>2+</h3>
               <p>Users</p>
             </div>
             <div class="stat">
@@ -56,7 +59,7 @@
             </div>
             <div class="stat">
               <i class="fab fa-yammer fa-4x"></i>
-              <h3>09876543</h3>
+              <h3>2</h3>
               <p>Daily visitors</p>
             </div>
           </div>
@@ -78,6 +81,30 @@
       </div>
     </section>
 
+    <!-- Directors -->
+    <section id="directors" class="movies bg-dark-pattern">
+      <h2><span class="text-primary">All </span>Directors</h2>
+      <div class="container">
+        <div id="director-list" class="film-grid"></div>
+      </div>
+      </div>
+    </section>
+
+
+    <!-- Movies -->
+    <!-- <section id="movies" class="movies bg-dark-pattern">
+      <div class="container">
+        <h2><span class="text-primary">Latest </span>Movies</h2>
+        <p class="text-center">Read all about them.</p>
+        <div class="film-grid">
+          <div class="card">
+            <div class="card-body">
+              <div class="title">Harry Potter and the prisoner of Azkaban</div>
+              <p>2004</p>
+            </div>
+            <div class="card-footer"><p>Director: Alfonso Cuarón</p></div>
+          </div> -->
+
     <!-- reviews -->
     <section id="reviews" class="reviews bg-light-pattern">
       <div class="container">
@@ -88,7 +115,7 @@
           <div class="card card-light">
             <div class="card-head">
               <div>
-
+                <h3>Pernilla</h3>
                 <h5>
                   Movie:
                   <span class="text-primary"
@@ -255,10 +282,6 @@
         <!-- Varför lägga import av script i section/div? -->
       </div>
     </section>
-
-
-
-<!-- MEHMETS FORMULÄR NERTILL FAN VAD KOD -->
 
     <section class="section-padding-lg bg-primary">
       <div class="container"></div>

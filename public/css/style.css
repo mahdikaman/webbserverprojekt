@@ -504,3 +504,8 @@ form {
   color: #3195ff;
   content: 'Release:';
 }
+
+#h2-all-reviews:before {
+  color: #3195ff;
+  content: 'All ';
+}
