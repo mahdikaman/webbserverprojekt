@@ -222,7 +222,6 @@ section h2 {
   display: grid;
 }
 
-
 .film-grid a:hover {
   color: #ea5252;
 }
@@ -232,7 +231,6 @@ section h2 {
   color: var(--primary-color);
   text-transform: uppercase;
 }
-
 
 /* reviews */
 .reviews {
@@ -273,7 +271,6 @@ section h2 {
   height: 190px;
 }
 
-
 /* Utility Classes */
 
 /* Card */
@@ -307,7 +304,6 @@ section h2 {
   line-height: 2.4rem;
   border: 1px transparent solid;
 }
-
 
 .btn-secondary {
   background-color: var(--secondary-color);
@@ -385,7 +381,6 @@ section h2 {
   background-color: var(--light-color);
   color: #333;
 }
-
 
 .flex {
   display: flex;
