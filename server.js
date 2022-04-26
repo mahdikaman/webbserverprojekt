@@ -12,6 +12,9 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cors())
 app.use(express.static('public'))
 const port = 1337
+app.listen(port, () =>
+  console.log(colors.rainbow(`App listening on port: ${port}`))
+)
 
 mongo.connect(
   url,
@@ -28,49 +31,59 @@ mongo.connect(
     reviews = db.collection('movieReview')
   }
 )
-app.listen(port, () =>
-  console.log(colors.rainbow(`App listening on port: ${port}`))
-)
 
-//GET ALL MOVIES WITH CHOOSEN TABLES , göra view senare
-app.get('/allmovies', (req, res) => {
-  let sql =
-    'SELECT movie.movieTitle, genre.genreType,actor.actorName,director.directorName,streamingApp.streamingAppTitle, movie.movieReleaseYear FROM genre INNER JOIN movie ON genre.genreId = movie.movieGenreId INNER JOIN actorMovie ON movie.movieId = actorMovie.actorMovieMId INNER JOIN actor ON actorMovie.actorMovieAId = actor.actorId INNER JOIN director ON movie.movieDirectorId = director.directorId INNER JOIN streamingAppMovie ON movie.movieId = streamingAppMovie.streamingAppMovieMId INNER JOIN streamingApp ON streamingApp.streamingAppId = streamingAppMovie.streamingAppMovieSId'
+app.get('/movies', (req, res) => {
+  let sql = 'SELECT * FROM movie'
   connection.query(sql, (err, results) => {
     if (err) throw err
     res.json(results)
   })
 })
-//movies sql
-app.get('/movie', (req, res) => {
-  let sql = 'SELECT * FROM movie'
-  connection.query(sql, (err, result) => {
-    if (err) throw err
-    res.json(result)
-  })
-})
 
-app.post('/movie', (req, res) => {
+//GET ALL MOVIES WITH CHOOSEN TABLES
+app.get('/allmovies', (req, res) => {
   let sql =
-    'INSERT INTO movie (movieId, movieTitle, ,movieReleaseYear VALUES(?,?,?)'
-  let params = [req.body.movieId, req.body.movieTitle, req.body.movieRelaseYear]
-  connection.query(sql, params, (err, result) => {
+    'SELECT movie.movieTitle, genre.genreType,actor.actorName,director.directorName,streamingApp.streamingAppTitle FROM genre INNER JOIN movie ON genre.genreId = movie.movieGenreId INNER JOIN actorMovie ON movie.movieId = actorMovie.actorMovieMId INNER JOIN actor ON actorMovie.actorMovieAId = actor.actorId INNER JOIN director ON movie.movieDirectorId = director.directorId INNER JOIN streamingAppMovie ON movie.movieId = streamingAppMovie.streamingAppMovieMId INNER JOIN streamingApp ON streamingApp.streamingAppId = streamingAppMovie.streamingAppMovieSId'
+  connection.query(sql, (err, results) => {
     if (err) throw err
-    res.json(result)
+    res.json(results)
   })
 })
 
-app.put('/movie', (req, res) => {
+// POST
+app.post('/movies', (req, res) => {
   let sql =
-    'UPDATE movie SET movieTitle = ?, movieReleaseYear = ? WHERE movieId = ?'
-  let params = [req.body.movieTitle, req.body.movieRelaseYear, req.body.movieId]
-  connection.query(sql, params, (err, result) => {
+    'INSERT INTO movie (movieId, movieTitle, movieReleaseYear, movieDirectorId, movieGenreId) VALUES(?,?,?,?,?)'
+  let params = [
+    req.body.movieId,
+    req.body.movieTitle,
+    req.body.movieReleaseYear,
+    req.body.movieDirectorId,
+    req.body.movieGenreId
+  ]
+  connection.query(sql, params, (err, results) => {
     if (err) throw err
-    res.json(result)
+    res.send('Movie added')
   })
 })
-
-app.delete('/movie', (req, res) => {
+//PUT
+app.put('/movies', (req, res) => {
+  let sql =
+    'UPDATE movie SET movieTitle = ?, movieReleaseYear = ?, movieDirectorId = ?, movieGenreId = ? WHERE movieId = ?'
+  let params = [
+    req.body.movieTitle,
+    req.body.movieReleaseYear,
+    req.body.movieDirectorId,
+    req.body.movieGenreId,
+    req.body.movieId
+  ]
+  connection.query(sql, params, (err, results) => {
+    if (err) throw err
+    res.json(results)
+  })
+})
+//DELETE
+app.delete('/movies', (req, res) => {
   console.log(req.body)
   let sql = 'DELETE FROM movie WHERE movieId = ?'
   connection.query(sql, [req.body.movieId], (err, result) => {
@@ -79,41 +92,29 @@ app.delete('/movie', (req, res) => {
   })
 })
 
-// directors sql
-app.get('/directors', (req, res) => {
-  let sql = 'SELECT * FROM director'
-  connection.query(sql, (err, result) => {
-    if (err) throw err
-    res.json(result)
-  })
-})
+// NoSql CRUD------------------------------------------------
 
-//NoSql CRUD------------------------------------------------
+//GET
 app.get('/movieReviews', (req, res) => {
   reviews.find().toArray((err, items) => {
-    if (err) throw err
-    res.json({ review: items })
-  })
-})
-
-app.get('movieReviews/:movie', (req, res) => {
-  let movieId = req.params.movie
-  movie.find({ movie: movieId }).toArray((err, items) => {
     if (err) throw err
     res.json({ reviews: items })
   })
 })
 
+//POST f
 app.post('/movieReviews', (req, res) => {
-  let movieTitle = req.body.movieTitle
-  let movieReview = req.body.movieReview
-  let movieRating = req.body.movieRating
+  let movieId = req.body.id
+  let movieTitle = req.body.movie
+  let movieReview = req.body.review
+  let movieRating = req.body.rating
 
-  movieReview.insertOne(
+  reviews.insertOne(
     {
+      id: parseInt(movieId),
       movie: movieTitle,
       review: movieReview,
-      rating: movieRating
+      rating: parseInt(movieRating)
     },
     (err, result) => {
       if (err) throw err
@@ -123,36 +124,35 @@ app.post('/movieReviews', (req, res) => {
   )
 })
 
-app.put('/movieReview', (req, res) => {
-  let movieTitle = req.body.movieTitle
-  let movieReview = req.body.movieReview
-  let movieRating = req.body.movieRating
-  let movieId = req.body.movieId
-
-  movieReview.updateOne(
-    { id: movieId },
+// PUT
+app.put('/movieReviews', (req, res) => {
+  let movieId = req.body.id
+  let movieTitle = req.body.movie
+  let movieReview = req.body.review
+  let movieRating = req.body.rating
+  console.log(movieId, movieTitle, movieReview)
+  reviews.updateOne(
+    { id: parseInt(movieId) },
     {
       $set: {
         movie: movieTitle,
         review: movieReview,
-        rating: movieRating,
-        id: movieId
+        rating: parseInt(movieRating)
       }
     },
     (err, result) => {
       if (err) throw err
-      console.log(result)
       res.json({ ok: true })
     }
   )
 })
+//DELETE
+app.delete('/movieReviews', (req, res) => {
+  let movieId = req.body.id
 
-app.delete('/movieReview', (req, res) => {
-  let movieId = req.body.movieId
-
-  movieReview.deleteOne(
+  reviews.deleteOne(
     {
-      id: movieId
+      id: parseInt(movieId)
     },
     (err, result) => {
       if (err) throw err

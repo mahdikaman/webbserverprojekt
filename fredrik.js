@@ -31,10 +31,7 @@ mongo.connect(
     reviews = db.collection('movieReview')
   }
 )
-// Skicka med id:n så att man har möjlighet att uppdatera FK i en tabell t ex movieGenreId i movie-tabellen. När id är PK är det den ni använder för att veta vilken rad ni ska uppdatera i databasen. Man skulle kunna göra som med böcker att man gör ett unikt index av ISBN (då något liknande i en annan tabell) och det är den kolumnen som då används för att komma åt rätt rad och t ex uppdatera eller ta bort den. Men har man ingen annan tydlig kolumn använder man id:t.
 
-//Sql CRUD------------------------
-//GET funkar
 app.get('/movies', (req, res) => {
   let sql = 'SELECT * FROM movie'
   connection.query(sql, (err, results) => {
@@ -53,7 +50,7 @@ app.get('/allmovies', (req, res) => {
   })
 })
 
-// POST funkar
+// POST
 app.post('/movies', (req, res) => {
   let sql =
     'INSERT INTO movie (movieId, movieTitle, movieReleaseYear, movieDirectorId, movieGenreId) VALUES(?,?,?,?,?)'
@@ -69,7 +66,7 @@ app.post('/movies', (req, res) => {
     res.send('Movie added')
   })
 })
-//PUT funkar
+//PUT
 app.put('/movies', (req, res) => {
   let sql =
     'UPDATE movie SET movieTitle = ?, movieReleaseYear = ?, movieDirectorId = ?, movieGenreId = ? WHERE movieId = ?'
@@ -85,7 +82,7 @@ app.put('/movies', (req, res) => {
     res.json(results)
   })
 })
-//DELETE funkar
+//DELETE
 app.delete('/movies', (req, res) => {
   console.log(req.body)
   let sql = 'DELETE FROM movie WHERE movieId = ?'
@@ -97,7 +94,7 @@ app.delete('/movies', (req, res) => {
 
 // NoSql CRUD------------------------------------------------
 
-//GET FUNKAR
+//GET
 app.get('/movieReviews', (req, res) => {
   reviews.find().toArray((err, items) => {
     if (err) throw err
@@ -105,14 +102,16 @@ app.get('/movieReviews', (req, res) => {
   })
 })
 
-//POST funkar
+//POST f
 app.post('/movieReviews', (req, res) => {
+  let movieId = req.body.id
   let movieTitle = req.body.movie
   let movieReview = req.body.review
   let movieRating = req.body.rating
 
   reviews.insertOne(
     {
+      id: parseInt(movieId),
       movie: movieTitle,
       review: movieReview,
       rating: parseInt(movieRating)
@@ -125,37 +124,35 @@ app.post('/movieReviews', (req, res) => {
   )
 })
 
-// PUT funkar med id i url men inte i textfält för insomnia
-//SKAPA ID
+// PUT
 app.put('/movieReviews', (req, res) => {
+  let movieId = req.body.id
   let movieTitle = req.body.movie
   let movieReview = req.body.review
   let movieRating = req.body.rating
-  let movieTitleNew = req.body.movienew
-
+  console.log(movieId, movieTitle, movieReview)
   reviews.updateOne(
-    { movieTitle: movieTitle },
+    { id: parseInt(movieId) },
     {
       $set: {
-        movie: movieTitleNew,
+        movie: movieTitle,
         review: movieReview,
         rating: parseInt(movieRating)
       }
     },
     (err, result) => {
       if (err) throw err
-      // console.log(result)
       res.json({ ok: true })
     }
   )
 })
-//DELETE funkar men inte med id
+//DELETE
 app.delete('/movieReviews', (req, res) => {
-  let movieTitle = req.body.movieTitle
+  let movieId = req.body.id
 
   reviews.deleteOne(
     {
-      movie: movieTitle
+      id: parseInt(movieId)
     },
     (err, result) => {
       if (err) throw err

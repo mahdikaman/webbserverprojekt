@@ -86,3 +86,15 @@ db.movieReview.insertMany([
     rating: 9
   }
 ])
+
+
+db.movieReview.updateOne(
+  { id: 15 },
+  {
+    $set: {
+      movie: 'Mehmet',
+      review: 'Den var bra',
+      rating: 1
+    }
+  }
+)
