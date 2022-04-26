@@ -474,3 +474,33 @@ form {
   outline: none;
   box-shadow: 0 0 0 0.8rem rgba(253, 242, 233, 0.5);
 }
+
+.movieTitleStyle:before {
+  color: #3195ff;
+  content: 'Title:';
+}
+
+.genreTypeStyle:before {
+  color: #3195ff;
+  content: 'Genre:';
+}
+
+.actorNameStyle:before {
+  color: #3195ff;
+  content: 'Actor:';
+}
+
+.directorNameStyle:before {
+  color: #3195ff;
+  content: 'Director:';
+}
+
+.streamingNameStyle:before {
+  color: #3195ff;
+  content: 'Stream at:';
+}
+
+.releaseYearStyle:before {
+  color: #3195ff;
+  content: 'Release:';
+}
