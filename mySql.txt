@@ -94,3 +94,12 @@ VALUES (1,1),(2,2),(3,3),(4,4),(5,1),(6,2),(7,3),(8,4),(9,1),(10,2),(11,3),(12,4
 -- inner join
 SELECT movie.movieTitle,actor.actorName FROM movie INNER JOIN actorMovie ON movie.movieId = actorMovie.actorMovieMId
 INNER JOIN actor ON actorMovie.actorMovieAId = actor.actorId;
+
+--inner join mellan alla tabeller vi vill visa i movie
+SELECT movie.movieTitle, genre.genreType,actor.actorName,director.directorName,streamingApp.streamingAppTitle
+FROM genre INNER JOIN movie ON genre.genreId = movie.movieGenreId
+INNER JOIN actorMovie ON movie.movieId = actorMovie.actorMovieMId
+INNER JOIN actor ON actorMovie.actorMovieAId = actor.actorId
+INNER JOIN director ON movie.movieDirectorId = director.directorId
+INNER JOIN streamingAppMovie ON movie.movieId = streamingAppMovie.streamingAppMovieMId
+INNER JOIN streamingApp ON streamingApp.streamingAppId = streamingAppMovie.streamingAppMovieSId;
