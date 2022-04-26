@@ -23,11 +23,21 @@ const getAllMovies = () => {
         const streamingAppTitle = document.createElement('li')
         const movieReleaseYear = document.createElement('li')
 
-        movieLi.innerHTML = movies.movieTitle
+        movieTitle.innerHTML = 'Title: ' + movies.movieTitle
+        genreType.innerHTML = 'Genre: ' + movies.genreType
+        actorName.innerHTML = 'Actor: ' + movies.actorName
+        directorName.innerHTML = 'Director: ' + movies.directorName
+        streamingAppTitle.innerHTML = 'Stream at: ' + movies.streamingAppTitle
+        movieReleaseYear.innerHTML = 'Release: ' + movies.movieReleaseYear
 
         movieList.appendChild(movieElement)
         movieElement.appendChild(movieElementBody)
-        movieUl.appendChild(movieLi)
+        movieUl.appendChild(movieTitle)
+        movieUl.appendChild(genreType)
+        movieUl.appendChild(actorName)
+        movieUl.appendChild(directorName)
+        movieUl.appendChild(streamingAppTitle)
+        movieUl.appendChild(movieReleaseYear)
         movieElementBody.appendChild(movieUl)
       })
     })
