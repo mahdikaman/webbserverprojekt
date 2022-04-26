@@ -96,6 +96,7 @@ app.delete('/movies', (req, res) => {
 })
 
 // NoSql CRUD------------------------------------------------
+
 //GET FUNKAR
 app.get('/movieReviews', (req, res) => {
   reviews.find().toArray((err, items) => {

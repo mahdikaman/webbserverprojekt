@@ -32,6 +32,15 @@ app.listen(port, () =>
   console.log(colors.rainbow(`App listening on port: ${port}`))
 )
 
+//GET ALL MOVIES WITH CHOOSEN TABLES , göra view senare
+app.get('/allmovies', (req, res) => {
+  let sql =
+    'SELECT movie.movieTitle, genre.genreType,actor.actorName,director.directorName,streamingApp.streamingAppTitle, movie.movieReleaseYear FROM genre INNER JOIN movie ON genre.genreId = movie.movieGenreId INNER JOIN actorMovie ON movie.movieId = actorMovie.actorMovieMId INNER JOIN actor ON actorMovie.actorMovieAId = actor.actorId INNER JOIN director ON movie.movieDirectorId = director.directorId INNER JOIN streamingAppMovie ON movie.movieId = streamingAppMovie.streamingAppMovieMId INNER JOIN streamingApp ON streamingApp.streamingAppId = streamingAppMovie.streamingAppMovieSId'
+  connection.query(sql, (err, results) => {
+    if (err) throw err
+    res.json(results)
+  })
+})
 //movies sql
 app.get('/movie', (req, res) => {
   let sql = 'SELECT * FROM movie'
