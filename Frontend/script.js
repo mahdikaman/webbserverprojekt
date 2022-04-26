@@ -7,12 +7,21 @@ const getDirectors = () => {
       const directors = result
 
       directors.forEach((director) => {
-        const directorDiv = document.getElementById('director-list')
-        const directorsUl = document.createElement('ul')
-        const directorsList = document.createElement('li')
-        directorsList.innerHTML = 'Director: ' + director.directorName
-        directorsUl.appendChild(directorsList)
-        directorDiv.appendChild(directorsUl)
+        const directorList = document.getElementById('director-list')
+
+        const directorElement = document.createElement('div')
+        directorElement.className = 'card'
+
+        const directorElementBody = document.createElement('div')
+        directorElementBody.className = 'card-body'
+
+        const directorName = document.createElement('div')
+        directorName.className = 'title'
+        directorName.innerHTML = 'Director: ' + director.directorName
+
+        directorList.appendChild(directorElement)
+        directorElement.appendChild(directorElementBody)
+        directorElementBody.appendChild(directorName)
       })
     })
 }
@@ -42,10 +51,13 @@ function renderMovies(movies) {
   for (const movie of movies) {
     const movieElement = document.createElement('div')
     movieElement.className = 'card'
+
     const movieElementBody = document.createElement('div')
     movieElementBody.className = 'card-body'
+
     const movieTitle = document.createElement('div')
     movieTitle.className = 'title'
+
     const movieYear = document.createElement('p')
 
     movieTitle.innerText = movie.movieTitle
