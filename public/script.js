@@ -64,6 +64,9 @@ const getAllReviews = () => {
     .then((response) => response.json())
     .then((result) => {
       console.log('All reviews: ', result)
+      const allReviews = result
+
+      allReviews.forEach((reviews) => {})
     })
 }
 getAllReviews()
