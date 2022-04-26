@@ -28,6 +28,8 @@
           <li><a href="#movies">Movies</a></li>
           <li><a href="#about">Add movie</a></li>
           <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#review">Add Review</a></li>
+
         </ul>
       </div>
     </nav>
@@ -281,27 +283,7 @@
       </div>
     </section>
 
-    <section>
-      <div>
-        <form method="POST" id="formBok">
-          <p>Movie:</p>
-          <p><input type="text" id="bokTitel" name="bokTitel" /></p>
-          <p>Review:</p>
-          <p><input type="text" id="bokForfattare" name="bokForfattare" /></p>
-          <p>Rating:</p>
-          <p><input type="text" id="bokIsbn" name="bokIsbn" /></p>
-
-          <p><input type="submit" value="Lägg till" /></p>
-        </form>
-        <p id="elOutput"></p>
-        <p><a href="bok.html">Show reviews</a></p>
-      </div>
-    </section>
-
-    <section class="section-padding-lg bg-primary">
-      <div class="container"></div>
-    </section>
-    <section class="section-cta">
+    <section id="review" class="section-cta">
       <div class="container">
         <div class="cta">
           <div class="cta-text-box">
@@ -315,9 +297,9 @@
 
             <form class="cta-form" action="#">
               <div>
-                <label for="full-name">Movie Name</label>
+                <label for="MovieTitle">Movie Title</label>
                 <input
-                  id="Movie"
+                  id="MovieTitle"
                   type="text"
                   placeholder="Mahdi the king"
                   required
@@ -325,11 +307,11 @@
               </div>
 
               <div>
-                <label for="email">Review</label>
+                <label for="Review">Review</label>
                 <input
                   id="Review"
-                  type="email"
-                  placeholder="hej@jagheteradam.com"
+                  type="Review"
+                  placeholder="Jag tycker det är bra"
                   required
                 />
               </div>
@@ -351,6 +333,39 @@
                 </select>
               </div>
 
+              <button class="btn btn--form">Send Review</button>
+            </form>
+          </div>
+          <div class="cta-img-box" role="img" aria-label="mahdi the king"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-padding-lg bg-primary">
+      <div class="container"></div>
+    </section>
+    <section id="about" class="section-cta">
+      <div class="container">
+        <div class="cta">
+          <div class="cta-text-box">
+            <h2 class="heading-secondary">Add your Movie Title</h2>
+            <p class="cta-text">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea
+              doloremque omnis vitae, soluta nihil mollitia labore! Non,
+              possimus excepturi architecto fuga temporibus totam repudiandae
+              assumenda necessitatibus eum placeat, illo odit!
+            </p>
+
+            <form class="cta-form" action="#">
+              <div>
+                <label for="MovieTitle">Movie Title</label>
+                <input
+                  id="MovieTitle"
+                  type="text"
+                  placeholder="Mahdi the king"
+                  required
+                />
+              </div>
               <button class="btn btn--form">Send Review</button>
             </form>
           </div>
