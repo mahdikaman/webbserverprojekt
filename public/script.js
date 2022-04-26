@@ -19,74 +19,76 @@ const getAllReviews = () => {
     })
 }
 getAllReviews()
-// ------------------
-// const getDirectors = () => {
-//   fetch('http://localhost:1337/directors')
-//     .then((response) => response.json())
-//     .then((result) => {
-//       console.log('Directors:', result)
-//       const directors = result
 
-//       directors.forEach((director) => {
-//         const directorList = document.getElementById('director-list')
+// -------------------------------------
 
-//         const directorElement = document.createElement('div')
-//         directorElement.className = 'card'
+const getDirectors = () => {
+  fetch('http://localhost:1337/directors')
+    .then((response) => response.json())
+    .then((result) => {
+      console.log('Directors:', result)
+      const directors = result
 
-//         const directorElementBody = document.createElement('div')
-//         directorElementBody.className = 'card-body'
+      directors.forEach((director) => {
+        const directorList = document.getElementById('director-list')
 
-//         const directorName = document.createElement('div')
-//         directorName.className = 'title'
-//         directorName.innerHTML = 'Director: ' + director.directorName
+        const directorElement = document.createElement('div')
+        directorElement.className = 'card'
 
-//         directorList.appendChild(directorElement)
-//         directorElement.appendChild(directorElementBody)
-//         directorElementBody.appendChild(directorName)
-//       })
-//     })
-// }
-// getDirectors()
+        const directorElementBody = document.createElement('div')
+        directorElementBody.className = 'card-body'
 
-// // --------------------------------------------------------
+        const directorName = document.createElement('div')
+        directorName.className = 'title'
+        directorName.innerHTML = 'Director: ' + director.directorName
 
-// function getMovies() {
-//   let promise = fetch('http://localhost:1337/movie')
+        directorList.appendChild(directorElement)
+        directorElement.appendChild(directorElementBody)
+        directorElementBody.appendChild(directorName)
+      })
+    })
+}
+getDirectors()
 
-//   return promise.then((response) => response.json())
-// }
+// --------------------------------------------------------
 
-// async function main() {
-//   movies = await getMovies()
-//   renderMovies(movies)
-//   console.log('Movies:', movies)
-// }
+function getMovies() {
+  let promise = fetch('http://localhost:1337/movies')
 
-// main()
+  return promise.then((response) => response.json())
+}
 
-// function renderMovies(movies) {
-//   const movieList = document.querySelector('#movie-list')
+async function main() {
+  movies = await getMovies()
+  renderMovies(movies)
+  console.log('Movies:', movies)
+}
 
-//   movieList.innerHTML = ''
+main()
 
-//   for (const movie of movies) {
-//     const movieElement = document.createElement('div')
-//     movieElement.className = 'card'
+function renderMovies(movies) {
+  const movieList = document.querySelector('#movie-list')
 
-//     const movieElementBody = document.createElement('div')
-//     movieElementBody.className = 'card-body'
+  movieList.innerHTML = ''
 
-//     const movieTitle = document.createElement('div')
-//     movieTitle.className = 'title'
+  for (const movie of movies) {
+    const movieElement = document.createElement('div')
+    movieElement.className = 'card'
 
-//     const movieYear = document.createElement('p')
+    const movieElementBody = document.createElement('div')
+    movieElementBody.className = 'card-body'
 
-//     movieTitle.innerText = movie.movieTitle
-//     movieYear.innerText = movie.movieReleaseYear
+    const movieTitle = document.createElement('div')
+    movieTitle.className = 'title'
 
-//     movieList.appendChild(movieElement)
-//     movieElement.appendChild(movieElementBody)
-//     movieElementBody.appendChild(movieTitle)
-//     movieElementBody.appendChild(movieYear)
-//   }
-// }
+    const movieYear = document.createElement('p')
+
+    movieTitle.innerText = movie.movieTitle
+    movieYear.innerText = movie.movieReleaseYear
+
+    movieList.appendChild(movieElement)
+    movieElement.appendChild(movieElementBody)
+    movieElementBody.appendChild(movieTitle)
+    movieElementBody.appendChild(movieYear)
+  }
+}

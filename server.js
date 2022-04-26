@@ -32,6 +32,14 @@ mongo.connect(
   }
 )
 
+app.get('/director', (req, res) => {
+  let sql = 'SELECT * FROM director'
+  connection.query(sql, (err, results) => {
+    if (err) throw err
+    res.json(results)
+  })
+})
+
 app.get('/movies', (req, res) => {
   let sql = 'SELECT * FROM movie'
   connection.query(sql, (err, results) => {
