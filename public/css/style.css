@@ -524,3 +524,16 @@ form {
   color: #3195ff;
   content: 'Rating: ';
 }
+
+footer {
+  color: white;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+p {
+  font-size: 31px;
+  display: flex;
+  font-weight: bold;
+}
