@@ -4,6 +4,7 @@ const getAllMovies = () => {
     .then((response) => response.json())
     .then((result) => {
       const allMovies = result
+      console.log('All movies:', allMovies)
 
       allMovies.forEach((movies) => {
         const movieList = document.getElementById('movie-list')
@@ -62,11 +63,11 @@ const getAllReviews = () => {
   fetch('http://localhost:1337/movieReviews')
     .then((response) => response.json())
     .then((result) => {
-      const allReviews = result
+      const allReviews = result.reviews
 
       allReviews.forEach((reviews) => {
         const movieName = document.getElementById('harry-potta')
-        movieName.innerHTML = reviews.name
+        movieName.innerHTML = reviews.movie
       })
     })
 }
