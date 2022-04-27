@@ -91,6 +91,7 @@ section h2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  justify-content: center;
 }
 
 .navbar ul {
