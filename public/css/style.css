@@ -536,4 +536,9 @@ p {
   font-size: 31px;
   display: flex;
   font-weight: bold;
+  color: #3195ff;
+}
+
+a {
+  color: #3195ff;
 }
