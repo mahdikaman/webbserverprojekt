@@ -2,73 +2,99 @@ use movieReviews
 
 db.movieReview.insertMany([
   {
+    id: 1,
     movie: "The Green Mile",
     review: "It's hard to create magic in a prison setting but Hanks and Duncan produce a memorable fairy tale. Hanks takes perhaps the most memorable pee in movie history.",
     rating: 8
   },
   {
+    id: 2,
     movie: "Harry Potter and the prisoner of Azkaban",
     review: "Harry is maturing and becoming more and more involved in that past that has brought him here. Sirius Black becomes the spoken adversary, but his presence is a bit obvious and we moviegoers are a suspicious lot. The three compadres begin to work together in more productive ways, moving the action rather than being moved by it. Hermione begins to become more flesh and blood here and deports herself well. Harry is now dealing with the horror of the potential end of his life and must make his way, discovering clues along the way, knowing that everything isn't always as it seems. Hagred and his hippogriff are pretty cool in this one and the unraveling of the plot with those spooky wraiths guarding Hogwarts is really captivating. There are a few rules that could bear some explanation. I've not read the books and would probably benefit from an occasional explanation. I'm ready for the fourth installment.",
     rating: 9
   },
   {
+    id: 3,
     movie: "Troy",
     review: "I love this movie, by far my favorite R rated movie and in the running for one of the greatest and most epic in my opinion. The acting, the world-building, the character depth, and the thrill of such an incredible depiction of the time period. I didn't think it was possible to make an accounting of the Trojan war void of the supernatural presence of the Greek Gods that rivals the old story in excellence, but this movie does.",
     rating: 8
   },
   {
+    id: 4,
     movie: "The Equalizer",
     review: "It is by far better than most shows now airing. It’s appeal is the vigilante theme, righting wrongs most of us feel helpless to correct. The mystery and the way it unfolds is very entertaining. Having Mel and Harry is perfect and the balance with just enough home life keeps a story going. Did not know how Queen Latifah would work out in this role, but she is wonderful. Her calm and confident demeanor works well. Please keep this hit series returning…it is perfect for the times. Thank you.",
     rating: 9
   },
   {
+    id: 5,
     movie: "The Wolf of Wall Street",
     review: "This movie is absolutely amazing and it deserved way more Oscar wins. Leonardo DiCaprio is unbelievable and this movie is his best performance and he isn't the only one putting in an amazing performance, this film is littered with them, Jonah Hill is amazing, Margot Robbie is so good to say this was her first major role. I love the story that this movie is telling and the direction on how they tell it is amazing aswell. This is easily one of the best movies of all time and it will go down in history as one of Leo's best ever movies. I love it so much!",
     rating: 10
   },
   {
+    id: 6,
     movie: "The Holiday",
     review: "Well yes, a 2006 romantic comedy that delivers what it promises. Mostly due to the disarming likability of the four leads plus Eli Wallach. Not for cynics, naturally, but very few things are and what the hell I laughed I was moved and I surprised myself all the way through. I came out of the theater smiling from ear to ear. Listen, that's not small feast in a world that seems too self conscious to be cute, even smartly cute like in this case. Kate Winslet can't help but being truthful so, there you go, you identify with her Rufus Sewell situation rooting for her - and I'm a guy! Cameron Diaz is, how can I put it? Yes adorable. A scatterbrain with a brain. Jude Law is another than I don't remember when was the last time he was this charming and Jack Black manages to keep it real and I was taken for a ride, going along, falling happily in Nancy Meyer's lovely trap. Well done!",
     rating: 7
   },
   {
+    id: 7,
     movie: "Hot Pursuit",
     review: "This film tells the story of a uptight female police officer who is sent to escort a key witness and his wife to Texas to testify a powerful drug lord. Two sets of gunmen goes to kill the key witness, leaving the police officer and the wife running for safety. I don't quite understand the poor reviews because I find Hot Pursuit very funny. Reese Witherspoon is so funny as a uptight policewoman who does everything by the book. The other female lead, Sofia Vergara is very beautiful and she is so convincing as a high maintenance wife. Together, they make the film super funny because they have this mystifying relationship of friend versus foe. They don't want each other's company and yet need each other to survive. There are so many laugh out loud moments throughout the film, and I think Hot Pursuit is a very entertaining film for a brain off relaxing evening.",
     rating: 8
   },
   {
+    id: 8,
     movie: "Walk the Line",
     review: "Walk the Line is a great movie. When you watch it, you feel as though you are watching Johny Cash in person. Juaqin Pheonix is amazing as Cash, a man with so many regrets and self doubts. Reese Witherspoon gives an Oscar performance as the love of his life June Carter. The film is long, but worth every minute. But what is great is that T Bone Burnett chose the right songs to play. When I saw it today people in the theater were singing along with the movie. And what is great, is that Pheonix and Witherspoon sand the songs themselves. This movie should win several Oscars this year. Go see it. It is an amazing film, and it perfectly protrays an amazing man.",
     rating: 10
   },
   {
+    id: 9,
     movie: "Avengers Infinity War",
     review: "This movie portrays a villain that by far has been the best out of all the other Marvel antagonists. It shows his personal conflicts, his purpose, as well as his cruelty. The heroes of this film are overshadowed by this, but the ending really makes a mark on the audience.",
     rating: 10
   },
   {
+    id: 10,
     movie: "Along Came Polly",
     review: "Ben and Jen do their best to overcome an unengaging story and a lack of forward momentum in Along Came Polly. There are some decent laughs throughout, but nothing that stuck with me after the credits. It's not awful by any means, but it's pretty forgettable.",
     rating: 5
   },
   {
+    id: 11,
     movie: "Iron Man",
     review: "Great movie, which serves as a perfect introduction to Tony Stark's character. The antagonist was a bit boring, but except for that, I loved the movie!",
     rating: 9
   },
   {
+    id: 12,
     movie: "Fantastic Four",
     review: "This movie is very enjoyable like it don't need a dark tone and Dr.Doom looks better. I'd wish I watch the 90s one even though it didn't age well but still I want to. At least the characters are likable then Fant4stic because the characters in the movie are lifeless while in this film there not boring. I know the film is not the best but I have a good time with it",
     rating: 7
   },
   {
+    id: 13,
     movie: "Rush",
     review: "I never thought I would ever watch a Ron Howard movie again much less write a good review of one. Howard hasn't made a movie since Parenthood that has not bored me to tears and almost angered me with its pedestrian refusal to take any risks. He's turned into a lesser version of Steven Spielberg -- his films are just as maudlin and emotionally manipulative, but they lack Spielberg's technical panache. However, the great reviews of Rush and the awards attention that swirled briefly around Daniel Bruhl got my butt in the seat for it, and I was surprised by actually liking it. It's a lean, mean telling of the intense rivalry between race car drivers James Hunt and Niki Lauda. You don't need to care much about race car driving (I certainly don't) to enjoy the story, particularly that of Lauda, who overcame a devastating accident to return to the track. Bruhl is as good as everyone said he was at the time, and Chris Hemsworth, as Hunt, is serviceable if nothing special. This is still a Ron Howard film, so don't expect it to push any boundaries, but it's much more technically daring than anything else he's made, the cinematography and editing putting the audience in the driver's seat more than once.",
     rating: 8
   },
   {
+    id: 14,
     movie: "Spider-Man No Way Home",
     review: "Superhero extravaganza! Spider-Man NWH didn't meet my expectations, it exceeded them. The most emotionally resonant MCU film so far. This movie is worth every excruciating moment we had to wait. The visuals, the score, the emotions, the story, and ofc the fan-service. This film understands spider-man fans like no other spider-man film before it. Truly a celebration of the most beloved character in the best way possible!",
     rating: 9
   }
 ])
+
+
+db.movieReview.updateOne(
+  { id: 15 },
+  {
+    $set: {
+      movie: 'Mehmet',
+      review: 'Den var bra',
+      rating: 1
+    }
+  }
+)

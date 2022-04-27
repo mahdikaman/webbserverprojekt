@@ -33,7 +33,8 @@ mongo.connect(
 
 app.listen(port, () => console.log(`http://${hostname}:${port}/`))
 
-app.get('/movie', (req, res) => {
+// ------------- GET MOVIES -------------
+app.get('/movies', (req, res) => {
   let sql = 'SELECT * FROM movie'
   connection.query(sql, (err, result) => {
     if (err) throw err
@@ -41,6 +42,16 @@ app.get('/movie', (req, res) => {
   })
 })
 
+// ------------- GET DIRECTORS -------------
+app.get('/directors', (req, res) => {
+  let sql = 'SELECT * FROM director'
+  connection.query(sql, (err, result) => {
+    if (err) throw err
+    res.json(result)
+  })
+})
+
+// ------------- POST MOVIE -------------
 app.post('/movie', (req, res) => {
   let sql =
     'INSERT INTO movie (movieId, movieTitle, movieReleaseYear, movieDirectorId, movieGenreId) VALUES(?,?,?,?,?)'
@@ -56,11 +67,12 @@ app.post('/movie', (req, res) => {
   connection.query(sql, params, (err, result) => {
     if (err) throw err
     // res.json(result)
-    res.send('Movie added')
+    res.send('Movie added!')
   })
 })
 
-app.put('/movies', (req, res) => {
+// ------------- PUT MOVIE -------------
+app.put('/movie', (req, res) => {
   let sql =
     'UPDATE movie SET movieTitle = ?, movieReleaseYear = ?, movieDirectorId = ?, movieGenreId = ? WHERE movieId = ?'
 
@@ -74,16 +86,18 @@ app.put('/movies', (req, res) => {
 
   connection.query(sql, params, (err, results) => {
     if (err) throw err
-    res.json(results)
+    // res.json(results)
+    res.send('Movie changed!')
   })
 })
 
+// ------------- DELETE MOVIE -------------
 app.delete('/movie', (req, res) => {
   console.log(req.body)
   let sql = 'DELETE FROM movie WHERE movieId = ?'
   connection.query(sql, [req.body.movieId], (err, result) => {
     if (err) throw err
-    res.end('The movie is now deleted!')
+    res.end('Movie deleted!')
   })
 })
 
@@ -109,7 +123,7 @@ app.post('/movieReview', (req, res) => {
   let movieReview = req.body.movieReview
   let movieRating = req.body.movieRating
 
-  movieReview.insertOne(
+  reviews.insertOne(
     {
       movie: movieTitle,
       review: movieReview,
@@ -123,14 +137,16 @@ app.post('/movieReview', (req, res) => {
   )
 })
 
+// -----------------------  CHECK PUT & DELETE  -----------------------
+
 app.put('/movieReview', (req, res) => {
   let movieTitle = req.body.movieTitle
   let movieReview = req.body.movieReview
   let movieRating = req.body.movieRating
   let movieId = req.body.movieId
 
-  movieReview.updateOne(
-    { id: movieId },
+  reviews.updateOne(
+    { _id: movieId },
     {
       $set: {
         movie: movieTitle,
@@ -150,7 +166,7 @@ app.put('/movieReview', (req, res) => {
 app.delete('/movieReview', (req, res) => {
   let movieId = req.body.movieId
 
-  movieReview.deleteOne(
+  reviews.deleteOne(
     {
       id: movieId,
     },
