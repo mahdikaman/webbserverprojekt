@@ -4,7 +4,6 @@ const getAllMovies = () => {
     .then((response) => response.json())
     .then((result) => {
       const allMovies = result
-      console.log('All movies:', allMovies)
 
       allMovies.forEach((movies) => {
         const movieList = document.getElementById('movie-list')
@@ -66,8 +65,35 @@ const getAllReviews = () => {
       const allReviews = result.reviews
 
       allReviews.forEach((reviews) => {
-        const movieName = document.getElementById('harry-potta')
-        movieName.innerHTML = reviews.movie
+        const reviewList = document.getElementById('review-list')
+
+        const reviewElement = document.createElement('div')
+        reviewElement.className = 'card'
+
+        const reviewElementBody = document.createElement('div')
+        reviewElementBody.className = 'card-body'
+
+        const reviewUl = document.createElement('ul')
+
+        const reviewMovie = document.createElement('li')
+        reviewMovie.className = 'reviewMovieStyle'
+
+        const reviewReview = document.createElement('li')
+        reviewReview.className = 'reviewReviewStyle'
+
+        const reviewRating = document.createElement('li')
+        reviewRating.className = 'reviewRatingStyle'
+
+        reviewMovie.innerHTML = reviews.movie
+        reviewReview.innerHTML = reviews.review
+        reviewRating.innerHTML = reviews.rating
+
+        reviewList.appendChild(reviewElement)
+        reviewElement.appendChild(reviewElementBody)
+        reviewUl.appendChild(reviewMovie)
+        reviewUl.appendChild(reviewReview)
+        reviewUl.appendChild(reviewRating)
+        reviewElementBody.appendChild(reviewUl)
       })
     })
 }

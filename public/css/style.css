@@ -267,10 +267,6 @@ section h2 {
   margin-bottom: 25px;
 }
 
-.reviews .card-body {
-  height: 190px;
-}
-
 /* Utility Classes */
 
 /* Card */
@@ -279,7 +275,6 @@ section h2 {
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 20px 30px;
-  position: relative;
   border: #333 solid 1px;
 }
 
@@ -508,4 +503,19 @@ form {
 #h2-all-reviews:before {
   color: #3195ff;
   content: 'All ';
+}
+
+.reviewMovieStyle:before {
+  color: #3195ff;
+  content: 'Movie: ';
+}
+
+.reviewReviewStyle:before {
+  color: #3195ff;
+  content: 'Review: ';
+}
+
+.reviewRatingStyle:before {
+  color: #3195ff;
+  content: 'Rating: ';
 }
