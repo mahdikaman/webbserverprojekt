@@ -532,7 +532,7 @@ footer {
   margin: auto;
 }
 
-p {
+#footer-p {
   font-size: 31px;
   display: flex;
   font-weight: bold;
