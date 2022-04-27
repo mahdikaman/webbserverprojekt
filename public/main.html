@@ -103,7 +103,7 @@
               assumenda necessitatibus eum placeat, illo odit!
             </p>
 
-            <form class="cta-form" action="#">
+            <form method="POST" class="cta-form">
               <div>
                 <label for="MovieTitle">Movie Title</label>
                 <input
@@ -125,8 +125,8 @@
               </div>
 
               <div>
-                <label for="select-where">Actors</label>
-                <select id="select-where" required>
+                <label for="movieActorId">Actors</label>
+                <select id="movieActorId" required>
                   <option value="">Choose your actor !</option>
                   <option value="1">Daniel Radcliffe</option>
                   <option value="2">Brad Pitt</option>
@@ -138,17 +138,17 @@
                   <option value="8">Sofia Vergara</option>
                   <option value="9">Reese Witherspoon</option>
                   <option value="10">Zoe Saldana</option>
-                  <option value="10">Jennifer Aniston</option>
-                  <option value="10">Robert Downey Jr</option>
-                  <option value="10">Chris Evans</option>
-                  <option value="10">Chris Hemsworth</option>
-                  <option value="10">Tom Holland</option>
+                  <option value="11">Jennifer Aniston</option>
+                  <option value="12">Robert Downey Jr</option>
+                  <option value="13">Chris Evans</option>
+                  <option value="14">Chris Hemsworth</option>
+                  <option value="15">Tom Holland</option>
                 </select>
               </div>
 
               <div>
-                <label for="select-where">Genre</label>
-                <select id="select-where" required>
+                <label for="movieGenreId">Genre</label>
+                <select id="movieGenreId" required>
                   <option value="">Choose your Genre !</option>
                   <option value="1">Fantasy</option>
                   <option value="2">Drama</option>
@@ -164,8 +164,8 @@
               </div>
 
               <div>
-                <label for="select-where">Directors</label>
-                <select id="select-where" required>
+                <label for="movieDirectorId">Directors</label>
+                <select id="movieDirectorId" required>
                   <option value="">Choose your Director !</option>
                   <option value="1">Wolfgang Petersen</option>
                   <option value="2">Antoine Fuqua</option>
@@ -177,13 +177,13 @@
                   <option value="8">Anthony Russo</option>
                   <option value="9">John Hamburg</option>
                   <option value="10">Jon Favreau</option>
-                  <option value="10">Tim Story</option>
-                  <option value="10">Jon Watts</option>
+                  <option value="11">Tim Story</option>
+                  <option value="12">Jon Watts</option>
                 </select>
               </div>
 
 
-              <button class="btn btn--form">Send Review</button>
+              <button id="skicka" class="btn btn--form">Add</button>
             </form>
           </div>
           <div class="cta-img-box" role="img" aria-label="mahdi the king"></div>
