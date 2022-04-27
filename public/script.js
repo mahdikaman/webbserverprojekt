@@ -57,7 +57,7 @@ getAllMovies()
 
 // -------------------------------
 
-// NoSQL
+// NoSQL GET ALL REVIEWS
 const getAllReviews = () => {
   fetch('http://localhost:1337/movieReviews')
     .then((response) => response.json())
@@ -98,3 +98,27 @@ const getAllReviews = () => {
     })
 }
 getAllReviews()
+
+//SHOW LIVETIME ON HTML
+const time = () => {
+  const today = new Date()
+  const day = today.getDay()
+  const daylist = [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday ',
+    'Thursday',
+    'Friday',
+    'Saturday'
+  ]
+  const date =
+    today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear()
+  const time =
+    today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds()
+  const dateTime = date + ' ' + time
+
+  document.getElementById('displayDateTime').innerHTML =
+    dateTime + ' ' + daylist[day]
+}
+setInterval(time, 1000)
