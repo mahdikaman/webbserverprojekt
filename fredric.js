@@ -19,7 +19,7 @@ mongo.connect(
   url,
   {
     useNewUrlParser: true,
-    useUnifiedTopology: true,
+    useUnifiedTopology: true
   },
   (err, client) => {
     if (err) {
@@ -60,7 +60,7 @@ app.post('/movie', (req, res) => {
     req.body.movieTitle,
     req.body.movieReleaseYear,
     req.body.movieDirectorId,
-    req.body.movieGenreId,
+    req.body.movieGenreId
   ]
 
   connection.query(sql, params, (err, result) => {
@@ -79,7 +79,7 @@ app.put('/movies', (req, res) => {
     req.body.movieReleaseYear,
     req.body.movieDirectorId,
     req.body.movieGenreId,
-    req.body.movieId,
+    req.body.movieId
   ]
 
   connection.query(sql, params, (err, results) => {
@@ -123,7 +123,7 @@ app.post('/movieReview', (req, res) => {
     {
       movie: movieTitle,
       review: movieReview,
-      rating: movieRating,
+      rating: movieRating
     },
     (err, result) => {
       if (err) throw err
@@ -146,8 +146,8 @@ app.put('/movieReview', (req, res) => {
         movie: movieTitle,
         review: movieReview,
         rating: movieRating,
-        id: movieId,
-      },
+        id: movieId
+      }
     },
     (err, result) => {
       if (err) throw err
@@ -162,7 +162,7 @@ app.delete('/movieReview', (req, res) => {
 
   movieReview.deleteOne(
     {
-      id: movieId,
+      id: movieId
     },
     (err, result) => {
       if (err) throw err
@@ -170,3 +170,44 @@ app.delete('/movieReview', (req, res) => {
     }
   )
 })
+
+// function getMovies() {
+//   let promise = fetch('http://localhost:1337/movies')
+
+//   return promise.then((response) => response.json())
+// }
+
+// async function main() {
+//   movies = await getMovies()
+//   renderMovies(movies)
+//   console.log('Movies:', movies)
+// }
+
+// main()
+
+// function renderMovies(movies) {
+//   const movieList = document.querySelector('#movie-list')
+
+//   movieList.innerHTML = ''
+
+//   for (const movie of movies) {
+//     const movieElement = document.createElement('div')
+//     movieElement.className = 'card'
+
+//     const movieElementBody = document.createElement('div')
+//     movieElementBody.className = 'card-body'
+
+//     const movieTitle = document.createElement('div')
+//     movieTitle.className = 'title'
+
+//     const movieYear = document.createElement('p')
+
+//     movieTitle.innerText = movie.movieTitle
+//     movieYear.innerText = movie.movieReleaseYear
+
+//     movieList.appendChild(movieElement)
+//     movieElement.appendChild(movieElementBody)
+//     movieElementBody.appendChild(movieTitle)
+//     movieElementBody.appendChild(movieYear)
+//   }
+// }
