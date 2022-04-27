@@ -42,16 +42,6 @@ app.get("/movies", (req, res) => {
   });
 });
 
-//GET ALL MOVIES WITH CHOOSEN TABLES
-app.get("/allmovies", (req, res) => {
-  let sql =
-    "SELECT movie.movieTitle, genre.genreType,actor.actorName,director.directorName,streamingApp.streamingAppTitle, movieReleaseYear FROM genre INNER JOIN movie ON genre.genreId = movie.movieGenreId INNER JOIN actorMovie ON movie.movieId = actorMovie.actorMovieMId INNER JOIN actor ON actorMovie.actorMovieAId = actor.actorId INNER JOIN director ON movie.movieDirectorId = director.directorId INNER JOIN streamingAppMovie ON movie.movieId = streamingAppMovie.streamingAppMovieMId INNER JOIN streamingApp ON streamingApp.streamingAppId = streamingAppMovie.streamingAppMovieSId";
-  connection.query(sql, (err, results) => {
-    if (err) throw err;
-    res.json(results);
-  });
-});
-
 // POST
 app.post("/movies", (req, res) => {
   let sql =
@@ -96,6 +86,75 @@ app.delete("/movies", (req, res) => {
     res.end("The movie is now deleted!");
   });
 });
+
+//GET ALL MOVIES WITH CHOOSEN TABLES
+app.get("/allmovies", (req, res) => {
+  let sql =
+    "SELECT movie.movieTitle, genre.genreType,actor.actorName,director.directorName,streamingApp.streamingAppTitle, movieReleaseYear FROM genre INNER JOIN movie ON genre.genreId = movie.movieGenreId INNER JOIN actorMovie ON movie.movieId = actorMovie.actorMovieMId INNER JOIN actor ON actorMovie.actorMovieAId = actor.actorId INNER JOIN director ON movie.movieDirectorId = director.directorId INNER JOIN streamingAppMovie ON movie.movieId = streamingAppMovie.streamingAppMovieMId INNER JOIN streamingApp ON streamingApp.streamingAppId = streamingAppMovie.streamingAppMovieSId";
+  connection.query(sql, (err, results) => {
+    if (err) throw err;
+    res.json(results);
+  });
+});
+
+
+//Get för alla filmer kopplade till skådespelare
+app.get('/movies/actors', (req, res) => {
+  let sql = 'SELECT movie.movieTitle,actor.actorName FROM movie INNER JOIN actorMovie ON movie.movieId = actorMovie.actorMovieMId INNER JOIN actor ON actorMovie.actorMovieAId = actor.actorId'
+  connection.query(sql, (err, result) => {
+    if (err) throw err
+    res.json(result)
+  })
+})
+
+//Returnerar skådespelare och genre där det matchar.
+app.get('/movies/actorsgenre', (req, res) => {
+  let sql = 'SELECT actor.actorName, genre.genreType FROM genre INNER JOIN actorMovie ON genre.genreId = actorMovie.actorMovieAId INNER JOIN actor ON actorMovie.actorMovieAId = actor.actorId'
+  connection.query(sql, (err, result) => {
+    if (err) throw err
+    res.json(result)
+  })
+})
+
+
+// Visar vilken film som visas på vilken streamingapp
+app.get('/movies/streamingapp', (req, res) => {
+  let sql = 'SELECT streamingApp.streamingAppTitle, movie.movieTitle FROM movie INNER JOIN streamingAppMovie ON movie.movieId = streamingAppMovie.streamingAppMovieMId INNER JOIN streamingApp ON streamingAppMovie.streamingAppMovieSId = streamingApp.streamingAppId'
+  connection.query(sql, (err, result) => {
+    if (err) throw err
+    res.json(result)
+  })
+})
+
+// Returnerar vem som har regisserat filmen
+app.get('/movies/director', (req, res) => {
+  let sql = 'SELECT movie.movieTitle, director.directorName FROM movie INNER JOIN director ON movie.movieDirectorId = director.directorId'
+  connection.query(sql, (err, result) => {
+    if (err) throw err
+    res.json(result)
+  })
+})
+
+
+
+//Get för antal filmer
+app.get('/movies/count', (req, res) => {
+  let sql = 'SELECT COUNT (movieId) AS movieAmount FROM movie'
+  connection.query(sql, (err, result) => {
+    if (err) throw err
+    res.json(result)
+  })
+})
+
+//Get för antal skådespelare
+app.get('/movies/countactors', (req, res) => {
+  let sql = 'SELECT COUNT (actorId) AS actorAmount FROM actor'
+  connection.query(sql, (err, result) => {
+    if (err) throw err
+    res.json(result)
+  })
+})
+
 
 //NoSql/mongoDb
 //GET
