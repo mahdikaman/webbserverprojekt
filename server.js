@@ -32,14 +32,8 @@ mongo.connect(
   }
 )
 
-app.get('/director', (req, res) => {
-  let sql = 'SELECT * FROM director'
-  connection.query(sql, (err, results) => {
-    if (err) throw err
-    res.json(results)
-  })
-})
-
+//SQL/mySql
+//GET
 app.get('/movies', (req, res) => {
   let sql = 'SELECT * FROM movie'
   connection.query(sql, (err, results) => {
@@ -74,6 +68,7 @@ app.post('/movies', (req, res) => {
     res.send('Movie added')
   })
 })
+
 //PUT
 app.put('/movies', (req, res) => {
   let sql =
@@ -90,6 +85,7 @@ app.put('/movies', (req, res) => {
     res.json(results)
   })
 })
+
 //DELETE
 app.delete('/movies', (req, res) => {
   console.log(req.body)
@@ -100,8 +96,7 @@ app.delete('/movies', (req, res) => {
   })
 })
 
-// NoSql CRUD------------------------------------------------
-
+//NoSql/mongoDb
 //GET
 app.get('/movieReviews', (req, res) => {
   reviews.find().toArray((err, items) => {
@@ -110,7 +105,7 @@ app.get('/movieReviews', (req, res) => {
   })
 })
 
-//POST f
+//POST
 app.post('/movieReviews', (req, res) => {
   let movieId = req.body.id
   let movieTitle = req.body.movie
@@ -132,7 +127,7 @@ app.post('/movieReviews', (req, res) => {
   )
 })
 
-// PUT
+//PUT
 app.put('/movieReviews', (req, res) => {
   let movieId = req.body.id
   let movieTitle = req.body.movie
@@ -154,6 +149,7 @@ app.put('/movieReviews', (req, res) => {
     }
   )
 })
+
 //DELETE
 app.delete('/movieReviews', (req, res) => {
   let movieId = req.body.id

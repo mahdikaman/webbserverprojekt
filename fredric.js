@@ -152,7 +152,7 @@ app.put('/movieReview', (req, res) => {
         movie: movieTitle,
         review: movieReview,
         rating: movieRating,
-        _id: movieId,
+        id: movieId,
       },
     },
     (err, result) => {
@@ -168,7 +168,7 @@ app.delete('/movieReview', (req, res) => {
 
   reviews.deleteOne(
     {
-      _id: movieId,
+      id: movieId,
     },
     (err, result) => {
       if (err) throw err
@@ -176,3 +176,44 @@ app.delete('/movieReview', (req, res) => {
     }
   )
 })
+
+// function getMovies() {
+//   let promise = fetch('http://localhost:1337/movies')
+
+//   return promise.then((response) => response.json())
+// }
+
+// async function main() {
+//   movies = await getMovies()
+//   renderMovies(movies)
+//   console.log('Movies:', movies)
+// }
+
+// main()
+
+// function renderMovies(movies) {
+//   const movieList = document.querySelector('#movie-list')
+
+//   movieList.innerHTML = ''
+
+//   for (const movie of movies) {
+//     const movieElement = document.createElement('div')
+//     movieElement.className = 'card'
+
+//     const movieElementBody = document.createElement('div')
+//     movieElementBody.className = 'card-body'
+
+//     const movieTitle = document.createElement('div')
+//     movieTitle.className = 'title'
+
+//     const movieYear = document.createElement('p')
+
+//     movieTitle.innerText = movie.movieTitle
+//     movieYear.innerText = movie.movieReleaseYear
+
+//     movieList.appendChild(movieElement)
+//     movieElement.appendChild(movieElementBody)
+//     movieElementBody.appendChild(movieTitle)
+//     movieElementBody.appendChild(movieYear)
+//   }
+// }
