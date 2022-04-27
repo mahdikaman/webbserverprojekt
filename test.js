@@ -1,19 +1,18 @@
 
-const formMovie = document.querySelector('#formMovie')
-const elementTitle = document.querySelector("#movieTitle");
-const elementReleaseYear = document.querySelector("#movieReleaseYear");
-const elementActorId = document.querySelector("#movieActorId");
-const elementGenreId = document.querySelector("#movieGenreId");
-const elementDirectorId = document.querySelector("#movieDirectorId");
-// const overfora = document.querySelector("#skicka");
+const formMovie = document.querySelector("#formMovie");
+const movieTitle = document.querySelector("#movieTitle");
+const movieReleaseYear = document.querySelector("#movieReleaseYear");
+const movieActorId = document.querySelector("#movieActorId");
+const movieGenreId = document.querySelector("#movieGenreId");
+const movieDirectorId = document.querySelector("#movieDirectorId");
+const overfora = document.querySelector("#skicka");
 
-function newMovie(event) {
-  event.preventDefault()
-  let movieTitle = elementTitle.value;
-  let movieReleaseYear = elementReleaseYear.value;
-  let movieActorId = elementActorId.value;
-  let movieGenreId = elementGenreId.value;
-  let movieDirectorId = elementDirectorId.value;
+function newMovie() {
+  let movieTitle = movieTitle.value;
+  let movieReleaseYear = movieReleaseYear.value;
+  let movieActorId = movieActorId.value;
+  let movieGenreId = movieGenreId.value;
+  let movieDirectorId = movieDirectorId.value;
 
   async function postData(url = "http://localhost:1337/movies", data = {}) {
     // Default options are marked with *
@@ -38,10 +37,8 @@ function newMovie(event) {
     });
     return response.json(); // parses JSON response into native JavaScript objects
   }
-
   postData("http://localhost:1337/movies").then((data) => {
     console.log(data);
   });
+  formMovie.addEventListener("click", newMovie, false);
 }
-
-formMovie.addEventListener("submit", newMovie, false);

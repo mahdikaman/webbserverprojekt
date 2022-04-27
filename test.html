@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <script src="script.js" defer></script>
+      <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      />
+      <link rel="stylesheet" href="css/style.css" />
+      <link rel="stylesheet" href="css/menu.css" />
+      <title>Movies</title>
+    </head>
+    <body>
+      <!-- Navigation -->
+      <nav class="navbar">
+        <div class="container">
+          <ul class="desktop-menu">
+            <li><a href="#movies">Movies</a></li>
+            <li><a href="#about">Add movie</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#review">Add Review</a></li>
+          </ul>
+        </div>
+      </nav>
+      <!-- Header/Hero -->
+      <header class="header bg-movies">
+        <div class="header-inner">
+          <div class="container">
+            <h5>Movie Reviewer</h5>
+            <h1>
+              Awesome reviewsite for
+              <span class="text-primary">Everyone</span>
+            </h1>
+            <p class="lead">Read our reviewers awsome reviews</p>
+            <a href="#movies" class="btn btn-primary">Start here</a>
+            <div class="stats">
+              <div class="stat">
+                <i class="fas fa-user fa-4x"></i>
+                <h3>2+</h3>
+                <p>Users</p>
+              </div>
+              <div class="stat">
+                <i class="fas fa-film fa-4x"></i>
+                <h3>10+</h3>
+                <p>Film Reviews</p>
+              </div>
+              <div class="stat">
+                <i class="fab fa-yammer fa-4x"></i>
+                <h3>2</h3>
+                <p>Daily visitors</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- Blue divider -->
+      <section class="bg-primary">
+        <div class="container"></div>
+      </section>
+      <!-- Movies -->
+      <section id="movies" class="movies bg-dark-pattern">
+        <h2><span class="text-primary">All </span>Movies</h2>
+        <div class="container">
+          <div id="movie-list" class="film-grid"></div>
+        </div>
+        </div>
+      </section>
+        <!-- Blue divider -->
+        <section class="bg-primary">
+          <div class="container"></div>
+        </section>
+      <!-- reviews -->
+  <section id="reviews" class="reviews bg-light-pattern">
+    <div class="container" id="review-list">
+      <h2 class="text-lg" id="h2-all-reviews">Reviews</h2>
+      <p class="text-center">Read our user reviews</p>
+
+    </div>
+  </section>
+
+
+
+  <!-- MEHMET FORMS -->
+      <section class="section-padding-lg bg-primary">
+        <div class="container"></div>
+      </section>
+
+      <section id="about" class="section-cta">
+        <div class="container">
+          <div class="cta">
+            <div class="cta-text-box">
+              <h2 class="heading-secondary">Add your Movie Title</h2>
+              <p class="cta-text">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea
+                doloremque omnis vitae, soluta nihil mollitia labore! Non,
+                possimus excepturi architecto fuga temporibus totam repudiandae
+                assumenda necessitatibus eum placeat, illo odit!
+              </p>
+
+              <form method="POST" id="formMovie"class="cta-form">
+                <div>
+                  <label for="MovieTitle">Movie Title</label>
+                  <input
+                    id="movieTitle"
+                    type="text"
+                    placeholder="Mahdi the king"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label for="movieReleaseYear">Movie Release Year</label>
+                  <input
+                    id="movieReleaseYear"
+                    type="text"
+                    placeholder="2022"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label for="movieActorId">Actors</label>
+                  <select id="movieActorId" required>
+                    <option value="">Choose your actor !</option>
+                    <option value="1">Daniel Radcliffe</option>
+                    <option value="2">Brad Pitt</option>
+                    <option value="3">Denzel Washington</option>
+                    <option value="4">Leonardo DiCaprio</option>
+                    <option value="5">Tom Hanks</option>
+                    <option value="6">Emma Watson</option>
+                    <option value="7">Cameron Diaz</option>
+                    <option value="8">Sofia Vergara</option>
+                    <option value="9">Reese Witherspoon</option>
+                    <option value="10">Zoe Saldana</option>
+                    <option value="11">Jennifer Aniston</option>
+                    <option value="12">Robert Downey Jr</option>
+                    <option value="13">Chris Evans</option>
+                    <option value="14">Chris Hemsworth</option>
+                    <option value="15">Tom Holland</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="movieGenreId">Genre</label>
+                  <select id="movieGenreId" required>
+                    <option value="">Choose your Genre !</option>
+                    <option value="1">Fantasy</option>
+                    <option value="2">Drama</option>
+                    <option value="3">Action</option>
+                    <option value="4">Comedy</option>
+                    <option value="5">Crime</option>
+                    <option value="6">Biography</option>
+                    <option value="7">Romance</option>
+                    <option value="8">Sci-fi</option>
+                    <option value="9">Adventure</option>
+                    <option value="10">Music</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="movieDirectorId">Directors</label>
+                  <select id="movieDirectorId" required>
+                    <option value="">Choose your Director !</option>
+                    <option value="1">Wolfgang Petersen</option>
+                    <option value="2">Antoine Fuqua</option>
+                    <option value="3">Martin Scorsese</option>
+                    <option value="4">Frank Darabont</option>
+                    <option value="5">Nancy Meyers</option>
+                    <option value="6">Anne Fletcher</option>
+                    <option value="7">James Mangold</option>
+                    <option value="8">Anthony Russo</option>
+                    <option value="9">John Hamburg</option>
+                    <option value="10">Jon Favreau</option>
+                    <option value="11">Tim Story</option>
+                    <option value="12">Jon Watts</option>
+                  </select>
+                </div>
+
+
+                <button id="skicka" class="btn btn--form">Add</button>
+              </form>
+            </div>
+            <div class="cta-img-box" role="img" aria-label="mahdi the king"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-padding-lg bg-primary">
+        <div class="container"></div>
+      </section>
+
+      <section id="review" class="section-cta">
+        <div class="container">
+          <div class="cta">
+            <div class="cta-text-box">
+              <h2 class="heading-secondary">Give your first review</h2>
+              <p class="cta-text">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea
+                doloremque omnis vitae, soluta nihil mollitia labore! Non,
+                possimus excepturi architecto fuga temporibus totam repudiandae
+                assumenda necessitatibus eum placeat, illo odit!
+              </p>
+
+              <form class="cta-form" action="#">
+                <div>
+                  <label for="MovieName">Movie Name</label>
+                  <input
+                    id="MovieName"
+                    type="text"
+                    placeholder="Mahdi the king"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label for="Review">Review</label>
+                  <input
+                    id="Review"
+                    type="Review"
+                    placeholder="Jag tycker det är bra"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label for="select-where">Rating</label>
+                  <select id="select-where" required>
+                    <option value="">Choose one !</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                  </select>
+                </div>
+
+                <button class="btn btn--form">Send Review</button>
+              </form>
+            </div>
+            <div class="cta-img-box" role="img" aria-label="mahdi the king"></div>
+          </div>
+        </div>
+      </section>
+    </body>
+  </html>
+
+
+
+  <script src="test.js"></script>
+</body>
+</html>
