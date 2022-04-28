@@ -1,5 +1,7 @@
-@media (max-width: 767px) {
+/* @media (max-width: 767px) {
   .desktop-menu {
     display: none !important;
   }
-}
+} */
+
+/* never use !important if its mot for test */
