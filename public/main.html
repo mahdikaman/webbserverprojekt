@@ -17,12 +17,10 @@
     <title>Movies</title>
     <link rel="icon" type="image/x-icon" href="/public/images/movies-icon.png">
   </head>
-  <body>
+
     <!-- Navigation -->
     <nav class="navbar">
-
       <div id="containers" class="container">
-
         <ul class="desktop-menu">
           <li><a href="#movies">Movies</a></li>
           <li><a href="#about">Add movie</a></li>
@@ -31,8 +29,8 @@
         </ul>
         <h2 id="displayDateTime"></h2>
       </div>
-
     </nav>
+
     <!-- Header/Hero -->
     <header class="header bg-movies">
       <div class="header-inner">
@@ -64,10 +62,12 @@
         </div>
       </div>
     </header>
+
     <!-- Blue divider -->
     <section class="bg-primary">
       <div class="container"></div>
     </section>
+
     <!-- Movies -->
     <section id="movies" class="movies bg-dark-pattern">
       <h2><span class="text-primary">All </span>Movies</h2>
@@ -77,6 +77,7 @@
       </div>
       </div>
     </section>
+
       <!-- Blue divider -->
       <section class="bg-primary">
         <div class="container"></div>
@@ -89,16 +90,19 @@
         </div>
         </div>
       </section>
+
         <!-- Blue divider -->
         <section class="bg-primary">
           <div class="container"></div>
         </section>
+
     <!-- reviews -->
 <section id="reviews" class="reviews bg-light-pattern">
   <div class="container" id="review-list">
     <h2 class="text-lg" id="h2-all-reviews">Reviews</h2>
   </div>
 </section>
+
 <!-- MEHMET FORMS -->
 <section class="bg-primary">
   <div class="container"></div>
@@ -125,8 +129,8 @@
                 <label for="movieReleaseYear">Movie Release Year</label>
                 <input
                   id="movieReleaseYear"
-                  type="text"
-                  placeholder="2022"
+                  type="number"
+                  placeholder="1990"
                   required
                 />
               </div>
@@ -134,7 +138,7 @@
               <div>
                 <label for="actorId">Actors</label>
                 <select id="actorId" required>
-                  <option value="">Choose your actor !</option>
+                  <option value="">Select actor</option>
                   <option value="1">Daniel Radcliffe</option>
                   <option value="2">Brad Pitt</option>
                   <option value="3">Denzel Washington</option>
@@ -156,7 +160,7 @@
               <div>
                 <label for="movieGenreId">Genre</label>
                 <select id="movieGenreId" required>
-                  <option value="">Choose your Genre !</option>
+                  <option value="">Select genre</option>
                   <option value="1">Fantasy</option>
                   <option value="2">Drama</option>
                   <option value="3">Action</option>
@@ -173,7 +177,7 @@
               <div>
                 <label for="movieDirectorId">Directors</label>
                 <select id="movieDirectorId" required>
-                  <option value="">Choose your Director !</option>
+                  <option value="">Select director</option>
                   <option value="1">Wolfgang Petersen</option>
                   <option value="2">Antoine Fuqua</option>
                   <option value="3">Martin Scorsese</option>
@@ -190,7 +194,6 @@
               </div>
 
               <input class="cta-form" type="submit" value="Add">
-              <!-- <button id="skicka" class="btn btn--form">Add</button> -->
             </form>
           </div>
           <div class="cta-img-box" role="img" aria-label="mahdi the king"></div>
