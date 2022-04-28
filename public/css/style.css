@@ -67,18 +67,24 @@ section h2 {
   max-width: 1100px;
   margin: auto;
 }
-
+#containers {
+  max-width: 1100px;
+  margin: 0 0 0 auto;
+}
 /* Navbar */
 .navbar {
   /* background-color: var(--primary-color); */
   background-color: #000;
-  height: 70px;
+  height: 45px;
   width: 100%;
   padding: 5px 10px;
   margin-bottom: 50px;
   position: fixed;
   z-index: 10;
   opacity: 0.8;
+}
+.desktop-menu {
+  align-items: center;
 }
 
 .navbar img {
@@ -545,4 +551,17 @@ a {
 
 #displayDateTime {
   color: #3195ff;
+  font-size: 20px;
+  padding-left: 200px;
+}
+
+input[type='submit'] {
+  background-color: #3195ff;
+  border: none;
+  display: block;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 43px;
+  cursor: pointer;
+  height: 58px;
 }
