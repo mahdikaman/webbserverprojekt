@@ -539,10 +539,16 @@ footer {
 }
 
 #footer-p {
-  font-size: 31px;
+  font-size: 20px;
   display: flex;
   font-weight: bold;
   color: #3195ff;
+}
+
+.fot:hover {
+  color: hotpink;
+  box-shadow: 0 2.4rem 4.8rem rgba(255, 0, 200, 0.7);
+  border-radius: 20px;
 }
 
 a {
@@ -561,7 +567,7 @@ input[type='submit'] {
   display: block;
   font-size: 1rem;
   font-weight: 500;
-  margin-top: 43px;
+  margin-top: 44px;
   cursor: pointer;
-  height: 58px;
+  height: 57.5px;
 }
