@@ -4,6 +4,7 @@ const elementTitle = document.querySelector("#movieTitle");
 const elementReleaseYear = document.querySelector("#movieReleaseYear");
 const elementGenreId = document.querySelector("#movieGenreId");
 const elementDirectorId = document.querySelector("#movieDirectorId");
+const elementActorId = document.querySelector('#actorId')
 
 function newMovie(event) {
   event.preventDefault()
@@ -11,6 +12,7 @@ function newMovie(event) {
   let movieReleaseYear = elementReleaseYear.value;
   let movieGenreId = elementGenreId.value;
   let movieDirectorId = elementDirectorId.value;
+  let actorId = elementActorId.value;
 
   async function postData(url = 'http://localhost:1337/movies', data = {}) {
     // Default options are marked with *
@@ -29,7 +31,8 @@ function newMovie(event) {
         movieTitle: movieTitle,
         movieReleaseYear: movieReleaseYear,
         movieGenreId: movieGenreId,
-        movieDirectorId: movieDirectorId
+        movieDirectorId: movieDirectorId,
+        actorId: actorId
       }) // body data type must match "Content-Type" header
     })
     return response.json() // parses JSON response into native JavaScript objects
