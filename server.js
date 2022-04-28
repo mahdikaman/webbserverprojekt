@@ -154,6 +154,15 @@ app.get('/movies/countactors', (req, res) => {
   })
 })
 
+// GET TO RENDER DATA TO DOM
+app.get('/postedmovies', (req, res) => {
+  let sql = 'SELECT movieTitle,movieReleaseYear FROM movie WHERE movieId >15'
+  connection.query(sql, (err, results) => {
+    if (err) throw err
+    res.json(results)
+  })
+})
+
 //NoSql/mongoDb
 //GET
 app.get('/movieReviews', (req, res) => {

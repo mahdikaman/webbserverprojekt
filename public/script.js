@@ -99,6 +99,44 @@ const getAllReviews = () => {
 }
 getAllReviews()
 
+//FETCH for render out posted data on movies
+const postedMovies = () => {
+  fetch('http://localhost:1337/postedmovies')
+    .then((response) => response.json())
+    .then((result) => {
+      console.log(result)
+      const movies = result
+
+      movies.forEach((movie) => {
+        const renderMovies = document.getElementById('render-movies')
+
+        const renderMoviesElement = document.createElement('div')
+        renderMoviesElement.className = 'card'
+
+        const renderMoviesElementBody = document.createElement('div')
+        renderMoviesElementBody.className = 'card-body'
+
+        const moviesUl = document.createElement('ul')
+
+        const movieTitle = document.createElement('li')
+        movieTitle.className = 'movieTitleStyle'
+
+        const movieReleaseYear = document.createElement('li')
+        movieReleaseYear.className = 'releaseYearStyle'
+
+        movieTitle.innerHTML = ' ' + movie.movieTitle
+        movieReleaseYear.innerHTML = ' ' + movie.movieReleaseYear
+
+        renderMovies.appendChild(renderMoviesElement)
+        renderMoviesElement.appendChild(renderMoviesElementBody)
+        moviesUl.appendChild(movieTitle)
+        moviesUl.appendChild(movieReleaseYear)
+        renderMoviesElementBody.appendChild(moviesUl)
+      })
+    })
+}
+postedMovies()
+
 //SHOW LIVETIME ON HTML
 const time = () => {
   const today = new Date()
