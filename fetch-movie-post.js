@@ -2,16 +2,13 @@
 const formMovie = document.querySelector('#formMovie')
 const elementTitle = document.querySelector("#movieTitle");
 const elementReleaseYear = document.querySelector("#movieReleaseYear");
-const elementActorId = document.querySelector("#movieActorId");
 const elementGenreId = document.querySelector("#movieGenreId");
 const elementDirectorId = document.querySelector("#movieDirectorId");
-// const overfora = document.querySelector("#skicka");
 
 function newMovie(event) {
   event.preventDefault()
   let movieTitle = elementTitle.value;
   let movieReleaseYear = elementReleaseYear.value;
-  let movieActorId = elementActorId.value;
   let movieGenreId = elementGenreId.value;
   let movieDirectorId = elementDirectorId.value;
 
@@ -31,7 +28,6 @@ function newMovie(event) {
       body: JSON.stringify({
         movieTitle: movieTitle,
         movieReleaseYear: movieReleaseYear,
-        movieActorId: movieActorId,
         movieGenreId: movieGenreId,
         movieDirectorId: movieDirectorId
       }) // body data type must match "Content-Type" header

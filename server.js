@@ -45,14 +45,13 @@ app.get('/movies', (req, res) => {
 // POST
 app.post('/movies', (req, res) => {
   let sql =
-    'INSERT INTO movie (movieId, movieTitle, movieReleaseYear, movieDirectorId, movieGenreId ) VALUES(?,?,?,?,?)'
+    'INSERT INTO movie (movieId, movieTitle, movieReleaseYear, movieDirectorId, movieGenreId) VALUES(?,?,?,?,?)'
   let params = [
     req.body.movieId,
     req.body.movieTitle,
     req.body.movieReleaseYear,
     req.body.movieDirectorId,
     req.body.movieGenreId
-    // req.body.movieActorId,
   ]
   connection.query(sql, params, (err, results) => {
     if (err) throw err
