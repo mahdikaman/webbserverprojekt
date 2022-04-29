@@ -79,13 +79,13 @@ section h2 {
   width: 100%;
   padding: 5px 10px;
   margin-bottom: 50px;
-  /* position: fixed; */
+  position: fixed;
   z-index: 10;
   opacity: 0.8;
 }
 .desktop-menu {
   margin: inherit;
-  margin-left: 40%;
+  margin-left: 37%;
 }
 
 .navbar img {
