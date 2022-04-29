@@ -13,6 +13,13 @@ function newMovie(event) {
   let movieDirectorId = elementDirectorId.value
   let actorId = elementActorId.value
 
+  elementTitle.value = ''
+  elementReleaseYear.value = ''
+  elementGenreId.value = ''
+  elementDirectorId.value = ''
+  elementActorId.value = ''
+
+
   async function postData(url = 'http://localhost:1337/movies', data = {}) {
     // Default options are marked with *
     const response = await fetch(url, {
