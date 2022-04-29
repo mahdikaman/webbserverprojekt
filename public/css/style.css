@@ -84,8 +84,9 @@ section h2 {
   opacity: 0.8;
 }
 .desktop-menu {
-  margin: inherit;
-  margin-left: 37%;
+  /* margin: inherit;
+  margin-left: 37%; */
+  justify-content: center;
 }
 
 .navbar img {
@@ -556,12 +557,6 @@ a {
   color: #3195ff;
 }
 
-#displayDateTime {
-  color: #3195ff;
-  font-size: 20px;
-  padding-right: 20px;
-  margin: inherit;
-}
 
 input[type='submit'] {
   background-color: #3195ff;
