@@ -23,9 +23,9 @@
       <div id="containers" class="container">
         <ul class="desktop-menu">
           <li><a href="#movies">Movies</a></li>
-          <li><a href="#about">Add movie</a></li>
+          <li><a href="#addmovie">Add movie</a></li>
           <li><a href="#reviews">Reviews</a></li>
-          <li><a href="#review">Add Review</a></li>
+          <li><a href="#addreview">Add Review</a></li>
         </ul>
       </div>
     </nav>
@@ -107,7 +107,7 @@
   <div class="container"></div>
 </section>
 
-    <section id="about" class="section-cta">
+    <section id="addmovie" class="section-cta">
       <div class="container">
         <div class="cta">
           <div class="cta-text-box">
@@ -208,17 +208,17 @@
       <div class="container"></div>
     </section>
 
-    <section id="review" class="section-cta">
+    <section id="addreview" class="section-cta">
       <div class="container">
         <div class="cta">
           <div class="cta-text-box">
             <h2 class="heading-secondary">Add your review</h2>
 
-            <form class="cta-form" action="#">
+            <form method="POST" id="formReview" class="cta-form">
               <div>
-                <label for="MovieName">Movie Name</label>
+                <label for="movieName">Movie Name</label>
                 <input
-                  id="MovieName"
+                  id="movieName"
                   type="text"
                   placeholder="Movie name"
                   onfocus="this.value=''"
@@ -229,8 +229,8 @@
               <div>
                 <label for="Review">Review</label>
                 <input
-                  id="Review"
-                  type="Review"
+                  id="reviewInput"
+                  type="text"
                   placeholder="Your review"
                   onfocus="this.value=''"
                   required
@@ -238,8 +238,8 @@
               </div>
 
               <div>
-                <label for="select-where">Rating</label>
-                <select id="select-where" required>
+                <label for="addRating">Rating</label>
+                <select id="addRating" required>
                   <option value="">Your rating</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
@@ -263,5 +263,6 @@
     </section>
     <footer><p id="footer-p">&copy; 2022 &nbsp<a class="fot" href="https://github.com/mahdikaman">mahdikaman &nbsp</a><a class="fot" href="https://github.com/TheFullStackFred">TheFullStackFred &nbsp</a><a class="fot" href="https://github.com/Pernilla-tech">Pernilla-tech &nbsp</a><a class="fot" href="https://github.com/fr3dzyy">fr3dzyy &nbsp</a><a class="fot" href="https://github.com/alexwololo">alexwololo</a></p></footer>
     <script src="../fetch-movie-post.js"></script>
+    <script src="../fetch-review-post.js"></script>
   </body>
 </html>
