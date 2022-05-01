@@ -5,6 +5,7 @@ const elementGenreId = document.querySelector('#movieGenreId')
 const elementDirectorId = document.querySelector('#movieDirectorId')
 const elementActorId = document.querySelector('#actorId')
 
+
 function newMovie(event) {
   event.preventDefault()
   let movieTitle = elementTitle.value
@@ -18,6 +19,9 @@ function newMovie(event) {
   elementGenreId.value = ''
   elementDirectorId.value = ''
   elementActorId.value = ''
+
+  let elementMovieAdded = document.querySelector('#movieAdded')
+  elementMovieAdded.textContent = 'Your movie has been added'
 
 
   async function postData(url = 'http://localhost:1337/movies', data = {}) {

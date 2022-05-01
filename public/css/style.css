@@ -568,3 +568,8 @@ input[type='submit'] {
   cursor: pointer;
   height: 57.5px;
 }
+
+#movieAdded {
+  margin: 25px 0 0 302px;
+  font-weight: bold;
+}

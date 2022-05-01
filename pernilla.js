@@ -248,3 +248,13 @@ app.delete('/movieReviews', (req, res) => {
       res.json({ ok: true })
   })
 })
+
+
+// //Räknar hur många reviews som finns totalt med count
+// db.movieReview.find( {} ).count()
+
+// //Räknar antal reviews som har rating 5 eller mer.
+// db.movieReview.countDocuments({ rating: { $gte: 5 } })
+
+// //Räknar antal reviews som har rating 4 eller mindre.
+// db.movieReview.countDocuments ({ rating: {$lte: 4} })
