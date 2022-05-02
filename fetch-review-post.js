@@ -9,10 +9,6 @@ function newReview(event) {
   let reviewText = reviewData.value
   let movieRating = movieRatingData.value
 
-  // movieTitleData.value = ''
-  // reviewData.value = ''
-  // movieRatingData.value = ''
-
   alert('Your review has been added')
 
   async function postData(
