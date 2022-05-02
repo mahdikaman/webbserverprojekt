@@ -20,8 +20,8 @@ function newMovie(event) {
   elementDirectorId.value = ''
   elementActorId.value = ''
 
-  let elementMovieAdded = document.querySelector('#movieAdded')
-  elementMovieAdded.textContent = 'Your movie has been added'
+  alert('Your movie has been added')
+
 
 
   async function postData(url = 'http://localhost:1337/movies', data = {}) {
