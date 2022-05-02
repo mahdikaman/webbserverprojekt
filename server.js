@@ -233,3 +233,12 @@ app.delete('/movieReviews', (req, res) => {
 })
 
 // MORE TABLES
+
+app.get('/movieReviews/ratings', (req, res) => {
+  let movieRating = req.params.ratings
+  reviews.find({ rating: movieRating }).toArray((err, items) => {
+    if (err) throw err
+    res.json({ ratings: items })
+  })
+})
+//WHAT IS WRONG?
