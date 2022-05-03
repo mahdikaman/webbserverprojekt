@@ -575,4 +575,6 @@ input[type='submit'] {
   cursor: pointer;
   width: fit-content;
   margin: auto;
+  color: red;
+  font-size: larger;
 }
