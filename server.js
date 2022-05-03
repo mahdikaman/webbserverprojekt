@@ -165,7 +165,7 @@ app.get('/postedmovies', (req, res) => {
 
 //NoSql/mongoDb
 //GET
-app.get('/movieReviews', (req, res) => {
+app.get('/movie/reviews', (req, res) => {
   reviews.find().toArray((err, items) => {
     if (err) throw err
     res.json({ reviews: items })
@@ -173,7 +173,7 @@ app.get('/movieReviews', (req, res) => {
 })
 
 //POST
-app.post('/movieReviews', (req, res) => {
+app.post('/movie/reviews', (req, res) => {
   let movieId = req.body.id
   let movieTitle = req.body.movie
   let movieReview = req.body.review
@@ -195,7 +195,7 @@ app.post('/movieReviews', (req, res) => {
 })
 
 //PUT
-app.put('/movieReviews', (req, res) => {
+app.put('/movie/reviews', (req, res) => {
   let movieId = req.body.id
   let movieTitle = req.body.movie
   let movieReview = req.body.review
@@ -218,7 +218,7 @@ app.put('/movieReviews', (req, res) => {
 })
 
 //DELETE
-app.delete('/movieReviews', (req, res) => {
+app.delete('/movie/reviews', (req, res) => {
   let movieId = req.body.id
 
   reviews.deleteOne(
@@ -232,13 +232,29 @@ app.delete('/movieReviews', (req, res) => {
   )
 })
 
-// MORE TABLES
-
-app.get('/movieReviews/ratings', (req, res) => {
-  let movieRating = req.params.ratings
-  reviews.find({ rating: movieRating }).toArray((err, items) => {
+//GET THE GREEN MILE
+app.get('/movie/reviews/thegreenmile', (req, res) => {
+  reviews.find({ movie: 'The Green Mile' }).toArray((err, items) => {
     if (err) throw err
-    res.json({ ratings: items })
+    res.json({ Selectedmovie: items })
   })
 })
-//WHAT IS WRONG?
+
+//NOT WORKING
+app.get('/movie/reviews/countdocuments', (req, res) => {
+  reviews
+    .find({})
+    .countDocuments()
+    .toArray((err, items) => {
+      if (err) throw err
+      res.json({ counted: items })
+    })
+})
+
+//NOT WORKING
+app.get('/movie/reviews/ratingover8', (req, res) => {
+  reviews.countDocuments({ rating: { $gte: 8 } }).toArray((err, items) => {
+    if (err) throw err
+    res.json({ counted: items })
+  })
+})
