@@ -573,4 +573,7 @@ input[type='submit'] {
 
 .closeButtonStyle {
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

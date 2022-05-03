@@ -35,7 +35,7 @@ const getAllMovies = () => {
         const movieReleaseYear = document.createElement('li')
         movieReleaseYear.className = 'releaseYearStyle'
 
-        const closeButton = document.createElement('button')
+        const closeButton = document.createElement('div')
         closeButton.className = 'closeButtonStyle'
 
         movieTitle.innerHTML = ' ' + movies.movieTitle
