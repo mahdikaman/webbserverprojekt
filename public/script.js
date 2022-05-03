@@ -4,6 +4,7 @@ const getAllMovies = () => {
     .then((response) => response.json())
     .then((result) => {
       const allMovies = result
+      console.log('Movies:', allMovies)
 
       allMovies.forEach((movies) => {
         const movieList = document.getElementById('movie-list')
@@ -59,10 +60,11 @@ getAllMovies()
 
 // NoSQL GET ALL REVIEWS
 const getAllReviews = () => {
-  fetch('http://localhost:1337/movieReviews')
+  fetch('http://localhost:1337/movie/reviews')
     .then((response) => response.json())
     .then((result) => {
       const allReviews = result.reviews
+      console.log('Reviews:', allReviews)
 
       allReviews.forEach((reviews) => {
         const reviewList = document.getElementById('review-list')
@@ -104,8 +106,8 @@ const postedMovies = () => {
   fetch('http://localhost:1337/postedmovies')
     .then((response) => response.json())
     .then((result) => {
-      console.log(result)
       const movies = result
+      console.log('Posted Movies:', movies)
 
       movies.forEach((movie) => {
         const renderMovies = document.getElementById('render-movies')

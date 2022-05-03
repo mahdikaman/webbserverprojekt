@@ -217,13 +217,28 @@ app.put('/movie/reviews', (req, res) => {
   )
 })
 
-//DELETE
+//DELETE WITH ID
 app.delete('/movie/reviews', (req, res) => {
   let movieId = req.body.id
 
   reviews.deleteOne(
     {
       id: parseInt(movieId)
+    },
+    (err, result) => {
+      if (err) throw err
+      res.json({ ok: true })
+    }
+  )
+})
+
+//DELETE WITH NAME
+app.delete('/movie/reviews', (req, res) => {
+  let movieName = req.body.movie
+
+  reviews.deleteOne(
+    {
+      movie: parseInt(movieName)
     },
     (err, result) => {
       if (err) throw err
