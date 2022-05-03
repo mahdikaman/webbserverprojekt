@@ -12,7 +12,7 @@ function newReview(event) {
   alert('Your review has been added')
 
   async function postData(
-    url = 'http://localhost:1337/movieReviews',
+    url = 'http://localhost:1337/movie/reviews',
     data = {}
   ) {
     const response = await fetch(url, {
@@ -34,7 +34,7 @@ function newReview(event) {
 
     return response.json()
   }
-  postData('http://localhost:1337/movieReviews').then((data) => {
+  postData('http://localhost:1337/movie/reviews').then((data) => {
     console.log(data)
   })
 }

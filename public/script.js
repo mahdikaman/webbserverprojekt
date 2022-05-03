@@ -126,7 +126,6 @@ const getAllReviews = () => {
         const deleteReview = (event) => {
           event.preventDefault()
           reviewElement.style.display = 'none'
-          console.log('Hello from function deleteMovie')
         }
 
         closeButton.addEventListener('click', deleteReview)
