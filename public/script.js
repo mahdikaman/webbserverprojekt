@@ -60,7 +60,7 @@ const getAllMovies = () => {
         const deleteMovie = (event) => {
           event.preventDefault()
           movieElement.style.display = 'none'
-          console.log('Hello from function deleteMovie')
+          //FRÅGA JERRY
           // app.delete('/movies', (req, res) => {
           //   console.log(req.body)
           //   let sql = 'DELETE FROM movie WHERE movieId = ?'
@@ -70,6 +70,7 @@ const getAllMovies = () => {
           //   })
           // })
         }
+
         closeButton.addEventListener('click', deleteMovie)
       })
     })
@@ -106,9 +107,13 @@ const getAllReviews = () => {
         const reviewRating = document.createElement('li')
         reviewRating.className = 'reviewRatingStyle'
 
+        const closeButton = document.createElement('div')
+        closeButton.className = 'closeButtonStyle'
+
         reviewMovie.innerHTML = reviews.movie
         reviewReview.innerHTML = reviews.review
         reviewRating.innerHTML = reviews.rating
+        closeButton.innerHTML = 'X'
 
         reviewList.appendChild(reviewElement)
         reviewElement.appendChild(reviewElementBody)
@@ -116,6 +121,15 @@ const getAllReviews = () => {
         reviewUl.appendChild(reviewReview)
         reviewUl.appendChild(reviewRating)
         reviewElementBody.appendChild(reviewUl)
+        reviewElement.appendChild(closeButton)
+
+        const deleteReview = (event) => {
+          event.preventDefault()
+          reviewElement.style.display = 'none'
+          console.log('Hello from function deleteMovie')
+        }
+
+        closeButton.addEventListener('click', deleteReview)
       })
     })
 }
@@ -146,14 +160,26 @@ const postedMovies = () => {
         const movieReleaseYear = document.createElement('li')
         movieReleaseYear.className = 'releaseYearStyle'
 
+        const closeButton = document.createElement('div')
+        closeButton.className = 'closeButtonStyle'
+
         movieTitle.innerHTML = ' ' + movie.movieTitle
         movieReleaseYear.innerHTML = ' ' + movie.movieReleaseYear
+        closeButton.innerHTML = 'X'
 
         renderMovies.appendChild(renderMoviesElement)
         renderMoviesElement.appendChild(renderMoviesElementBody)
         moviesUl.appendChild(movieTitle)
         moviesUl.appendChild(movieReleaseYear)
         renderMoviesElementBody.appendChild(moviesUl)
+        renderMoviesElement.appendChild(closeButton)
+
+        const deletePostedMovie = (event) => {
+          event.preventDefault()
+          renderMoviesElement.style.display = 'none'
+        }
+
+        closeButton.addEventListener('click', deletePostedMovie)
       })
     })
 }
