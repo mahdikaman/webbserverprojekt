@@ -62,9 +62,19 @@ app.get('/allmovies', (req, res) => {
   })
 })
 
+// ------------- GET POSTED MOVIE DATA -------------
+
+app.get('/postedmovies', (req, res) => {
+  let sql = 'SELECT movieTitle,movieReleaseYear FROM movie WHERE movieId >15'
+  connection.query(sql, (err, results) => {
+    if (err) throw err
+    res.json(results)
+  })
+})
+
 // ------------- POST MOVIE -------------
 
-app.post('/movie', (req, res) => {
+app.post('/movies', (req, res) => {
   let sql =
     'INSERT INTO movie (movieId, movieTitle, movieReleaseYear, movieDirectorId, movieGenreId) VALUES(?,?,?,?,?)'
 
@@ -85,7 +95,7 @@ app.post('/movie', (req, res) => {
 
 // ------------- PUT MOVIE -------------
 
-app.put('/movie', (req, res) => {
+app.put('/movies', (req, res) => {
   let sql =
     'UPDATE movie SET movieTitle = ?, movieReleaseYear = ?, movieDirectorId = ?, movieGenreId = ? WHERE movieId = ?'
 
@@ -133,15 +143,17 @@ app.get('/movieReviews/:movie', (req, res) => {
 })
 
 app.post('/movieReviews', (req, res) => {
-  let movieTitle = req.body.movieTitle
-  let movieReview = req.body.movieReview
-  let movieRating = req.body.movieRating
+  let movieId = req.body.id
+  let movieTitle = req.body.movie
+  let movieReview = req.body.review
+  let movieRating = req.body.rating
 
   reviews.insertOne(
     {
+      id: parseInt(movieId),
       movie: movieTitle,
       review: movieReview,
-      rating: movieRating
+      rating: parseInt(movieRating)
     },
     (err, result) => {
       if (err) throw err
