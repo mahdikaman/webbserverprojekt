@@ -35,12 +35,16 @@ const getAllMovies = () => {
         const movieReleaseYear = document.createElement('li')
         movieReleaseYear.className = 'releaseYearStyle'
 
+        const closeButton = document.createElement('button')
+        closeButton.className = 'closeButtonStyle'
+
         movieTitle.innerHTML = ' ' + movies.movieTitle
         genreType.innerHTML = ' ' + movies.genreType
         actorName.innerHTML = ' ' + movies.actorName
         directorName.innerHTML = ' ' + movies.directorName
         streamingAppTitle.innerHTML = ' ' + movies.streamingAppTitle
         movieReleaseYear.innerHTML = ' ' + movies.movieReleaseYear
+        closeButton.innerHTML = 'X'
 
         movieList.appendChild(movieElement)
         movieElement.appendChild(movieElementBody)
@@ -51,12 +55,18 @@ const getAllMovies = () => {
         movieUl.appendChild(streamingAppTitle)
         movieUl.appendChild(movieReleaseYear)
         movieElementBody.appendChild(movieUl)
+        movieElement.appendChild(closeButton)
+
+        const deleteMovie = () => {
+          movieElement = ''
+        }
+        closeButton.addEventListener('click', deleteMovie)
       })
     })
 }
 getAllMovies()
 
-// -------------------------------
+//<--------------------------------------------------------------------------->
 
 // NoSQL GET ALL REVIEWS
 const getAllReviews = () => {

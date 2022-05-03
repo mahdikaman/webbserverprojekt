@@ -403,10 +403,6 @@ form {
 }
 
 .section-cta {
-  /* top / right / bottom / left */
-  /* padding: 9.6rem 0 12.8rem 0; */
-
-  /* top / horizontal / left */
   padding: 4.8rem 0;
 }
 
@@ -559,7 +555,6 @@ a {
   color: #3195ff;
 }
 
-
 input[type='submit'] {
   background-color: #3195ff;
   border: none;
@@ -574,4 +569,8 @@ input[type='submit'] {
 #movieAdded {
   margin: 25px 0 0 302px;
   font-weight: bold;
+}
+
+.closeButtonStyle {
+  cursor: pointer;
 }
