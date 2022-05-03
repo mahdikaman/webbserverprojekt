@@ -59,9 +59,8 @@ const getAllMovies = () => {
 
         const deleteMovie = (event) => {
           event.preventDefault()
-          movieList.value = ''
+          movieElement.style.display = 'none'
           console.log('Hello from function deleteMovie')
-          reloadPage()
           // app.delete('/movies', (req, res) => {
           //   console.log(req.body)
           //   let sql = 'DELETE FROM movie WHERE movieId = ?'
