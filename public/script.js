@@ -57,16 +57,19 @@ const getAllMovies = () => {
         movieElementBody.appendChild(movieUl)
         movieElement.appendChild(closeButton)
 
-        const deleteMovie = () => {
-          movieElement = ''
-          app.delete('/movies', (req, res) => {
-            console.log(req.body)
-            let sql = 'DELETE FROM movie WHERE movieId = ?'
-            connection.query(sql, [req.body.movieId], (err, result) => {
-              if (err) throw err
-              res.end('The movie is now deleted!')
-            })
-          })
+        const deleteMovie = (event) => {
+          event.preventDefault()
+          movieList.value = ''
+          console.log('Hello from function deleteMovie')
+          reloadPage()
+          // app.delete('/movies', (req, res) => {
+          //   console.log(req.body)
+          //   let sql = 'DELETE FROM movie WHERE movieId = ?'
+          //   connection.query(sql, [req.body.movieId], (err, result) => {
+          //     if (err) throw err
+          //     res.end('The movie is now deleted!')
+          //   })
+          // })
         }
         closeButton.addEventListener('click', deleteMovie)
       })
