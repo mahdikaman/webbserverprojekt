@@ -69,14 +69,14 @@ const getAllMovies = () => {
           }
 
           //FRÅGA JERRY
-          app.delete('/movies', (req, res) => {
-            console.log(req.body)
-            let sql = 'DELETE FROM movie WHERE movieId = ?'
-            connection.query(sql, [req.body.movieId], (err, result) => {
-              if (err) throw err
-              res.end('The movie is now deleted!')
-            })
-          })
+          // app.delete('/movies', (req, res) => {
+          //   console.log(req.body)
+          //   let sql = 'DELETE FROM movie WHERE movieId = ?'
+          //   connection.query(sql, [req.body.movieId], (err, result) => {
+          //     if (err) throw err
+          //     res.end('The movie is now deleted!')
+          //   })
+          // })
         }
 
         closeButton.addEventListener('click', deleteMovie(allMovies))

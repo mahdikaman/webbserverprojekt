@@ -271,11 +271,11 @@ app.get('/movie/reviews/ratingover8', (req, res) => {
   })
 })
 
-//NOT WORKING
-// app.get('/movieReviews/:movie', (req, res) => {
-//   let movies = req.params.movie
-//   reviews.find({ movie: movies }).toArray((err, items) => {
-//     if (err) throw err
-//     res.json({ movies: items })
-//   })
-// })
+//GET QUERY STRING (URL PARAMETER)
+app.get('/movie/reviews/:movie', (req, res) => {
+  let movies = req.params.movie
+  reviews.find({ movie: movies }).toArray((err, items) => {
+    if (err) throw err
+    res.json({ reviews: items })
+  })
+})
