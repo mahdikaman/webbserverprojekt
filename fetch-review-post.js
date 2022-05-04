@@ -34,9 +34,7 @@ function newReview(event) {
 
     return response.json()
   }
-  postData('http://localhost:1337/movie/reviews').then((data) => {
-    console.log(data)
-  })
+  postData('http://localhost:1337/movie/reviews').then((data) => {})
 }
 
 formReview.addEventListener('submit', newReview, false)

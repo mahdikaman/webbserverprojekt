@@ -38,9 +38,7 @@ function newMovie(event) {
     })
     return response.json() // parses JSON response into native JavaScript objects
   }
-  postData('http://localhost:1337/movies').then((data) => {
-    console.log(data)
-  })
+  postData('http://localhost:1337/movies').then((data) => {})
 }
 
 formMovie.addEventListener('submit', newMovie, false)

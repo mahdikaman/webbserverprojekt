@@ -57,29 +57,11 @@ const getAllMovies = () => {
         movieElementBody.appendChild(movieUl)
         movieElement.appendChild(closeButton)
 
-        const deleteMovie = (movie) => {
-          return (event) => {
-            event.preventDefault()
-            movieList.removeChild(movieElement)
-
-            // try to get index of movie to know wich one to delete in database
-            const movieToDelete = movie
-            console.log('Movie to delete:', movieToDelete)
-            console.log(movieToDelete.indexOf())
-          }
-
-          //FRÅGA JERRY
-          // app.delete('/movies', (req, res) => {
-          //   console.log(req.body)
-          //   let sql = 'DELETE FROM movie WHERE movieId = ?'
-          //   connection.query(sql, [req.body.movieId], (err, result) => {
-          //     if (err) throw err
-          //     res.end('The movie is now deleted!')
-          //   })
-          // })
+        const deleteMovie = () => {
+          movieList.removeChild(movieElement)
         }
 
-        closeButton.addEventListener('click', deleteMovie(allMovies))
+        closeButton.addEventListener('click', deleteMovie)
       })
     })
 }
@@ -135,8 +117,7 @@ const getAllReviews = () => {
         reviewElementBody.appendChild(reviewUl)
         reviewElement.appendChild(closeButton)
 
-        const deleteReview = (event) => {
-          event.preventDefault()
+        const deleteReview = () => {
           reviewList.removeChild(reviewElement)
         }
 
@@ -186,8 +167,7 @@ const postedMovies = () => {
         renderMoviesElementBody.appendChild(moviesUl)
         renderMoviesElement.appendChild(closeButton)
 
-        const deletePostedMovie = (event) => {
-          event.preventDefault()
+        const deletePostedMovie = () => {
           renderMovies.removeChild(renderMoviesElement)
         }
 
