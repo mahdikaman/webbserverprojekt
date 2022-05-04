@@ -63,7 +63,7 @@ const getAllMovies = () => {
             movieElement.style.display = 'none'
             const movieToDelete = movie
             console.log('Movie to delete:', movieToDelete)
-            console.log(movie.indexOf())
+            console.log(movieToDelete.indexOf())
           }
 
           //FRÅGA JERRY
