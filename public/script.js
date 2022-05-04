@@ -96,6 +96,9 @@ const getAllReviews = () => {
       const allReviews = result.reviews
       console.log('Reviews:', allReviews)
 
+      const totalReviews = document.querySelector('#total-reviews')
+      totalReviews.innerHTML = allReviews.length
+
       allReviews.forEach((reviews) => {
         const reviewList = document.getElementById('review-list')
 
@@ -141,6 +144,7 @@ const getAllReviews = () => {
       })
     })
 }
+
 getAllReviews()
 
 //FETCH for render out posted data on movies
@@ -191,6 +195,7 @@ const postedMovies = () => {
       })
     })
 }
+
 postedMovies()
 
 function reloadPage() {
