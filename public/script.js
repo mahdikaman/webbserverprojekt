@@ -82,11 +82,6 @@ const getAllMovies = () => {
     })
 }
 
-// deleteTodo(todo) {
-//   const todoIndex = this.listOfTodos.indexOf(todo)
-//   this.listOfTodos.splice(todoIndex, 1)
-// }
-
 getAllMovies()
 
 //<--------------------------------------------------------------------------->
