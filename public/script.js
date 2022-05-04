@@ -60,7 +60,9 @@ const getAllMovies = () => {
         const deleteMovie = (movie) => {
           return (event) => {
             event.preventDefault()
-            movieElement.style.display = 'none'
+            movieList.removeChild(movieElement)
+
+            // try to get index of movie to know wich one to delete in database
             const movieToDelete = movie
             console.log('Movie to delete:', movieToDelete)
             console.log(movieToDelete.indexOf())
@@ -132,7 +134,7 @@ const getAllReviews = () => {
 
         const deleteReview = (event) => {
           event.preventDefault()
-          reviewElement.style.display = 'none'
+          reviewList.removeChild(reviewElement)
         }
 
         closeButton.addEventListener('click', deleteReview)
@@ -182,7 +184,7 @@ const postedMovies = () => {
 
         const deletePostedMovie = (event) => {
           event.preventDefault()
-          renderMoviesElement.style.display = 'none'
+          renderMovies.removeChild(renderMoviesElement)
         }
 
         closeButton.addEventListener('click', deletePostedMovie)
