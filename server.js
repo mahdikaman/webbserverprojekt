@@ -255,30 +255,29 @@ app.get('/movie/reviews/thegreenmile', (req, res) => {
   })
 })
 
-//NOT WORKING
+//COUNTING DOCS
 app.get('/movie/reviews/countdocuments', (req, res) => {
-  reviews
-    .find({})
-    .countDocuments()
-    .toArray((err, items) => {
-      if (err) throw err
-      res.json({ counted: items })
-    })
-})
-
-//NOT WORKING
-app.get('/movie/reviews/ratingover8', (req, res) => {
-  reviews.countDocuments({ rating: { $gte: 8 } }).toArray((err, items) => {
+  reviews.countDocuments((err, items) => {
     if (err) throw err
     res.json({ counted: items })
   })
 })
 
 //NOT WORKING
-app.get('/movieReviews/:movie', (req, res) => {
-  let movies = req.params.movie
-  reviews.find({ movie: movies }).toArray((err, items) => {
-    if (err) throw err
-    res.json({ movies: items })
-  })
-})
+// app.get('/movie/reviews/ratingover8', (req, res) => {
+//   reviews.countDocuments(
+//     { rating: { $gte: 8 } }((err, items) => {
+//       if (err) throw err
+//       res.json({ ratingover8: items })
+//     })
+//   )
+// })
+
+//NOT WORKING
+// app.get('/movieReviews/:movie', (req, res) => {
+//   let movies = req.params.movie
+//   reviews.find({ movie: movies }).toArray((err, items) => {
+//     if (err) throw err
+//     res.json({ movies: items })
+//   })
+// })
