@@ -57,9 +57,15 @@ const getAllMovies = () => {
         movieElementBody.appendChild(movieUl)
         movieElement.appendChild(closeButton)
 
-        const deleteMovie = (event) => {
-          event.preventDefault()
-          movieElement.style.display = 'none'
+        const deleteMovie = (movie) => {
+          return (event) => {
+            event.preventDefault()
+            movieElement.style.display = 'none'
+            const movieToDelete = movie
+            console.log('Movie to delete:', movieToDelete)
+            console.log(movie.indexOf())
+          }
+
           //FRÅGA JERRY
           // app.delete('/movies', (req, res) => {
           //   console.log(req.body)
@@ -71,10 +77,16 @@ const getAllMovies = () => {
           // })
         }
 
-        closeButton.addEventListener('click', deleteMovie)
+        closeButton.addEventListener('click', deleteMovie(allMovies))
       })
     })
 }
+
+// deleteTodo(todo) {
+//   const todoIndex = this.listOfTodos.indexOf(todo)
+//   this.listOfTodos.splice(todoIndex, 1)
+// }
+
 getAllMovies()
 
 //<--------------------------------------------------------------------------->
