@@ -263,15 +263,13 @@ app.get('/movie/reviews/countdocuments', (req, res) => {
   })
 })
 
-//NOT WORKING
-// app.get('/movie/reviews/ratingover8', (req, res) => {
-//   reviews.countDocuments(
-//     { rating: { $gte: 8 } }((err, items) => {
-//       if (err) throw err
-//       res.json({ ratingover8: items })
-//     })
-//   )
-// })
+//GET RATINGS OVER 8
+app.get('/movie/reviews/ratingover8', (req, res) => {
+  reviews.find({ rating: { $gte: 8 } }).toArray((err, items) => {
+    if (err) throw err
+    res.json({ ratingover8: items })
+  })
+})
 
 //NOT WORKING
 // app.get('/movieReviews/:movie', (req, res) => {
